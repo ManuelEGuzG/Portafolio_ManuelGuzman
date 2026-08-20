@@ -16,6 +16,7 @@ import SeccionInicio from '@/componentes/SeccionInicio.vue'
 import GaleriaProyectos from '@/componentes/GaleriaProyectos.vue'
 import SeccionSobreMi from '@/componentes/SeccionSobreMi.vue'
 import SeccionContacto from '@/componentes/SeccionContacto.vue'
+import LogosTecnologias from '@/componentes/LogosTecnologias.vue'
 </script>
 
 <template>
@@ -45,6 +46,8 @@ import SeccionContacto from '@/componentes/SeccionContacto.vue'
         :url-github="perfil.urlGithub"
         :url-linkedin="perfil.urlLinkedin"
       />
+
+      <LogosTecnologias />
     </main>
   </div>
 </template>

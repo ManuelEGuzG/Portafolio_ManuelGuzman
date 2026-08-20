@@ -34,18 +34,8 @@ const filas = [logos, [...logos].reverse()]
 </script>
 
 <template>
-  <section class="logos-tecnologias mt-12 sm:mt-16" aria-labelledby="titulo-tecnologias">
-    <div class="flex items-end justify-between gap-4 mb-5">
-      <div>
-        <p class="blueprint-tag">Stack / Ecosistema</p>
-        <h3 id="titulo-tecnologias" class="font-display text-xl sm:text-2xl font-semibold mt-2">
-          Tecnologías que utilizo
-        </h3>
-      </div>
-      <span class="hidden sm:block font-mono text-[10px] text-muted tracking-widest">{{ logos.length }} TOOLS</span>
-    </div>
-
-    <div class="logos-tecnologias__viewport" aria-label="Tecnologías utilizadas">
+  <section class="logos-tecnologias py-6 sm:py-8" aria-label="Tecnologías utilizadas">
+    <div class="logos-tecnologias__viewport">
       <div v-for="(fila, indiceFila) in filas" :key="indiceFila" class="logos-tecnologias__track" :class="{ 'logos-tecnologias__track--reverse': indiceFila === 1 }">
         <div v-for="(logo, indice) in [...fila, ...fila]" :key="`${indiceFila}-${logo.nombre}-${indice}`" class="logos-tecnologias__item">
           <img :src="logo.imagen" :alt="logo.nombre" loading="lazy" />
