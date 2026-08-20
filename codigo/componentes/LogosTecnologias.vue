@@ -22,12 +22,12 @@ const logos = [
   { nombre: 'Postman', imagen: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
   { nombre: 'Tailwind CSS', imagen: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
   { nombre: 'Android Studio', imagen: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg' },
-  { nombre: 'Web API', imagen: 'https://cdn.simpleicons.org/swagger/ffffff' },
-  { nombre: 'APIs REST', imagen: 'https://cdn.simpleicons.org/openapiinitiative/ffffff' },
-  { nombre: 'VoIP', imagen: 'https://cdn.simpleicons.org/asterisk/ffffff' },
-  { nombre: 'Webmin', imagen: 'https://cdn.simpleicons.org/webmin/ffffff' },
-  { nombre: 'Máquinas virtuales', imagen: 'https://cdn.simpleicons.org/vmware/ffffff' },
-  { nombre: 'Microsoft Office', imagen: 'https://cdn.simpleicons.org/microsoftoffice/ffffff' }
+  { nombre: 'Web API', imagen: 'https://cdn.simpleicons.org/swagger/85EA2D' },
+  { nombre: 'APIs REST', imagen: 'https://cdn.simpleicons.org/openapiinitiative/6BA539' },
+  { nombre: 'VoIP', imagen: 'https://cdn.simpleicons.org/asterisk/F15D22' },
+  { nombre: 'Webmin', imagen: 'https://cdn.simpleicons.org/webmin/7DA0D0' },
+  { nombre: 'Máquinas virtuales', imagen: 'https://cdn.simpleicons.org/vmware/607078' },
+  { nombre: 'Microsoft Office', imagen: 'https://cdn.simpleicons.org/microsoftoffice/D83B01' }
 ]
 
 const filas = [logos, [...logos].reverse()]
