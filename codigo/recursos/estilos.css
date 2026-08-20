@@ -299,6 +299,25 @@
   }
 }
 
+@media (max-width: 639px) {
+  .pila-3d {
+    perspective: 900px;
+  }
+
+  .pila-3d__grupo {
+    height: 245px;
+  }
+
+  .pila-3d__capa {
+    left: 0;
+    right: 0;
+  }
+
+  .pila-3d__contenido {
+    padding: 0.7rem 0.85rem;
+  }
+}
+
 /* ============================================================
    8. TEXTURA DE GRANO SUTIL (acabado premium)
    Un ruido casi imperceptible sobre todo el sitio, generado con SVG

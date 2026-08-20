@@ -41,10 +41,10 @@ function irASeccion(id) {
   <header class="fixed top-0 inset-x-0 z-50">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 mt-4">
       <nav
-        class="flex items-center justify-between rounded-full border border-line bg-ink/70 backdrop-blur-xl px-5 py-3 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)]"
+        class="flex items-center justify-between rounded-full border border-line bg-ink/70 backdrop-blur-xl px-3 sm:px-5 py-2.5 sm:py-3 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)]"
       >
         <!-- Logo / iniciales, hace scroll al inicio -->
-        <button type="button" class="font-display text-sm font-semibold tracking-tight text-signal" @click="irASeccion('inicio')">
+        <button type="button" class="font-display text-xs sm:text-sm font-semibold tracking-tight text-signal shrink-0" @click="irASeccion('inicio')">
           MEGG<span class="text-muted">/dev</span>
         </button>
 
@@ -68,7 +68,7 @@ function irASeccion(id) {
         </ul>
 
         <!-- Botón de menú hamburguesa (solo en móvil) -->
-        <button type="button" class="sm:hidden text-muted hover:text-signal transition-colors" :aria-label="menuAbierto ? 'Cerrar menú' : 'Abrir menú'" @click="menuAbierto = !menuAbierto">
+        <button type="button" class="sm:hidden inline-flex items-center justify-center w-10 h-10 text-muted hover:text-signal transition-colors" :aria-label="menuAbierto ? 'Cerrar menú' : 'Abrir menú'" @click="menuAbierto = !menuAbierto">
           <X v-if="menuAbierto" :size="19" :stroke-width="1.8" aria-hidden="true" />
           <Menu v-else :size="19" :stroke-width="1.8" aria-hidden="true" />
         </button>

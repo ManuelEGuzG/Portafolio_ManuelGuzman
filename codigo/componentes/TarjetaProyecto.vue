@@ -85,12 +85,12 @@ function alMoverMouse(evento) {
       <component :is="iconosDeTipo[proyecto.tipo]" class="absolute top-3 right-3 z-[1] text-signal" :size="20" :stroke-width="1.6" aria-hidden="true" />
     </div>
 
-    <div class="relative z-[2] flex flex-col h-full p-6">
-      <div class="flex items-start justify-between gap-3">
-        <h3 class="font-display font-semibold text-paper text-lg leading-snug">
+    <div class="relative z-[2] flex flex-col h-full p-4 sm:p-6 min-w-0">
+      <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 min-w-0">
+        <h3 class="font-display font-semibold text-paper text-lg leading-snug break-words min-w-0">
           {{ proyecto.titulo }}
         </h3>
-        <span class="tag shrink-0">{{ etiquetasDeTipo[proyecto.tipo] }}</span>
+        <span class="tag self-start shrink-0">{{ etiquetasDeTipo[proyecto.tipo] }}</span>
       </div>
 
       <p class="text-muted text-sm mt-3 flex-1 leading-relaxed line-clamp-3">

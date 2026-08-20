@@ -65,7 +65,7 @@ const proyectoSiguiente = computed(() =>
       <header class="relative overflow-hidden pt-32 pb-14 px-4 sm:px-6">
         <div class="relative max-w-4xl mx-auto" v-revelar>
           <p class="blueprint-tag">{{ etiquetasDeTipo[proyecto.tipo] }}</p>
-          <h1 class="font-display font-semibold text-3xl sm:text-5xl mt-4 leading-tight text-paper">
+          <h1 class="font-display font-semibold text-3xl sm:text-5xl mt-4 leading-tight text-paper break-words">
             {{ proyecto.titulo }}
           </h1>
           <div class="flex flex-wrap gap-2 mt-6">
@@ -101,7 +101,7 @@ const proyectoSiguiente = computed(() =>
                 :href="proyecto.urlDemo"
                 target="_blank"
                 rel="noopener"
-                class="btn-primary justify-center"
+                class="btn-primary justify-center w-full break-words text-center"
               >
                 Ver demo <ExternalLink :size="15" aria-hidden="true" />
               </a>
@@ -111,7 +111,7 @@ const proyectoSiguiente = computed(() =>
                 :href="repositorio.url"
                 target="_blank"
                 rel="noopener"
-                class="btn-ghost justify-center"
+                class="btn-ghost justify-center w-full break-words text-center"
               >
                 {{ repositorio.titulo || `Repositorio ${indice + 1}` }}
                 <ExternalLink :size="15" aria-hidden="true" />
@@ -144,23 +144,23 @@ const proyectoSiguiente = computed(() =>
       <!-- Navegación al proyecto anterior/siguiente -->
       <nav
         v-if="proyectoAnterior || proyectoSiguiente"
-        class="border-t border-line max-w-4xl mx-auto px-4 sm:px-6 py-8 flex items-center justify-between gap-4 font-mono text-xs"
+        class="border-t border-line max-w-4xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-2 items-start gap-4 font-mono text-xs"
       >
         <RouterLink
           v-if="proyectoAnterior"
           :to="`/proyecto/${proyectoAnterior.id}`"
-          class="text-muted hover:text-signal transition-colors duration-300 truncate"
+          class="text-muted hover:text-signal transition-colors duration-300 min-w-0"
         >
-          <span class="inline-flex items-center gap-1.5"><ArrowLeft :size="14" aria-hidden="true" /> {{ proyectoAnterior.titulo }}</span>
+          <span class="inline-flex items-start gap-1.5 max-w-full break-words"><ArrowLeft class="shrink-0 mt-0.5" :size="14" aria-hidden="true" /> {{ proyectoAnterior.titulo }}</span>
         </RouterLink>
         <span v-else />
 
         <RouterLink
           v-if="proyectoSiguiente"
           :to="`/proyecto/${proyectoSiguiente.id}`"
-          class="text-muted hover:text-signal transition-colors duration-300 truncate text-right"
+          class="text-muted hover:text-signal transition-colors duration-300 min-w-0 text-right"
         >
-          <span class="inline-flex items-center gap-1.5">{{ proyectoSiguiente.titulo }} <ArrowRight :size="14" aria-hidden="true" /></span>
+          <span class="inline-flex items-start justify-end gap-1.5 max-w-full break-words">{{ proyectoSiguiente.titulo }} <ArrowRight class="shrink-0 mt-0.5" :size="14" aria-hidden="true" /></span>
         </RouterLink>
       </nav>
     </template>

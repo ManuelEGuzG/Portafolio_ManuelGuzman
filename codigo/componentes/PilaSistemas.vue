@@ -88,7 +88,7 @@ function estiloPosicion(indice) {
 <template>
   <div
     ref="contenedor"
-    class="pila-3d"
+    class="pila-3d w-full max-w-[34rem] mx-auto"
     @mousemove="alMoverMouse"
     @mouseleave="alSalirMouse"
   >
@@ -123,7 +123,7 @@ function estiloPosicion(indice) {
       </div>
     </div>
 
-    <p class="font-mono text-[11px] text-muted text-center mt-4">
+    <p class="font-mono text-[10px] sm:text-[11px] text-muted text-center mt-4">
       De la interfaz a la infraestructura
     </p>
   </div>
