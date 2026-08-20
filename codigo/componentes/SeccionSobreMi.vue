@@ -9,6 +9,8 @@
   -----------------------------------------------------------------------
 -->
 <script setup>
+import LogosTecnologias from './LogosTecnologias.vue'
+
 // Habilidades agrupadas por categoría. La clave del objeto (ej. "Lenguajes")
 // es el título de cada tarjeta, y el array son los tags que se muestran dentro.
 const habilidades = {
@@ -78,6 +80,8 @@ const formacionAcademica = [
         </div>
       </div>
     </div>
+
+    <LogosTecnologias v-revelar />
 
     <!-- Línea de tiempo de formación académica -->
     <div v-revelar class="mt-14">
