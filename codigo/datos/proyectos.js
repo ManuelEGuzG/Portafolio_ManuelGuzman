@@ -95,7 +95,7 @@ export const proyectos = [
       'Sistema para estimar el peso de bovinos a partir de imágenes, con backend en Laravel integrado al frontend en Vue.js mediante API. Incorpora un módulo en Python para el procesamiento/estimación con IA y una app en Android Studio para captura en campo. Uso de Docker y Git durante el desarrollo y mantenimiento del proyecto.',
     tecnologias: ['Laravel', 'Vue.js', 'MySQL', 'Docker', 'Python', 'Android Studio'],
     tipo: 'academico',
-    repositorios: [],
+    repositorios: [{ titulo: 'Repositorio Frontend', url: 'https://github.com/ManuelEGuzG/bovweight-frontend' }, { titulo: 'Repositorio ML', url: 'https://github.com/ManuelEGuzG/bovweight-ml' }, { titulo: 'Repositorio Backend', url: 'https://github.com/ManuelEGuzG/bovweight-backend' }],
     urlDemo: '',
     documentos: [],
     estadisticas: { agregadas: 1620, eliminadas: 280 }
