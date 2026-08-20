@@ -1,0 +1,367 @@
+/**
+ * estilos.css
+ * -----------------------------------------------------------------------
+ * Hoja de estilos global del proyecto.
+ *
+ * Estructura de este archivo:
+ *   1. Directivas de Tailwind (base, componentes, utilidades)
+ *   2. Ajustes globales (@layer base): selección de texto, scrollbar, focus
+ *   3. Clases reutilizables (@layer components): botones, tarjetas, tags...
+ *   4. Estilos "a mano" que Tailwind no cubre bien: fondo de plano técnico,
+ *      animaciones de scroll-reveal, efecto spotlight en tarjetas, la
+ *      pila de capas 3D del Hero y la textura de grano del sitio.
+ * -----------------------------------------------------------------------
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   1. AJUSTES GLOBALES
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth; /* scroll suave al navegar por anclas (#proyectos, etc.) */
+  }
+  body {
+    background: #0a0f14;
+    color: #f2f5f0;
+    font-feature-settings: 'ss01' on;
+    overflow-x: hidden; /* evita scroll horizontal por elementos decorativos */
+  }
+  ::selection {
+    background: rgba(139, 226, 139, 0.28);
+    color: #fff;
+  }
+  :focus-visible {
+    /* Contorno visible al navegar con teclado (accesibilidad) */
+    outline: 2px solid #8be28b;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Barra de scroll personalizada (Chrome/Edge/Safari) */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b1220;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 999px;
+    border: 2px solid #0b1220;
+  }
+}
+
+/* ============================================================
+   2. CLASES REUTILIZABLES
+   Se usan directamente en las plantillas .vue, ej: class="btn-primary"
+   ============================================================ */
+@layer components {
+  .particles-background.particles-container {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0.78;
+  }
+
+  .app-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .click-spark {
+    position: relative;
+    width: 100%;
+  }
+
+  .click-spark__canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 55;
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .particles-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .particles-container canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Etiqueta técnica tipo anotación de plano, ej: "SEC. 02" */
+  .blueprint-tag {
+    @apply font-mono text-[11px] tracking-[0.2em] uppercase text-signal;
+  }
+
+  /* Línea decorativa corta antes de un subtítulo */
+  .section-divider {
+    @apply flex items-center gap-4 my-2;
+  }
+  .section-divider::before {
+    content: '';
+    @apply h-px w-8 bg-signal/60;
+  }
+
+  /* Panel base: tarjetas, cajas de contenido */
+  .panel {
+    @apply bg-surface border border-line rounded-xl;
+    box-shadow: 0 18px 50px -34px rgba(0, 0, 0, 0.9);
+  }
+
+  /* Chip/etiqueta pequeña (usada para tecnologías y filtros) */
+  .tag {
+    @apply font-mono text-[11px] px-2.5 py-1 rounded-full border border-line text-muted bg-surface2 transition-colors duration-300;
+  }
+  .tag-active {
+    @apply border-signal/70 text-signal bg-signal/10;
+  }
+
+  /* Botón principal (relleno, color de acento) */
+  .btn-primary {
+    @apply relative inline-flex items-center gap-2 font-mono text-sm px-6 py-3 rounded-lg bg-signal text-ink font-semibold overflow-hidden transition-all duration-300;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 35px -10px rgba(139, 226, 139, 0.85);
+  }
+
+  /* Botón secundario (solo borde) */
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 font-mono text-sm px-6 py-3 rounded-lg border border-line text-paper hover:border-signal hover:text-signal transition-all duration-300;
+  }
+
+  /* Acción de retorno usada en páginas secundarias */
+  .btn-back {
+    @apply inline-flex items-center gap-2.5 font-mono text-xs tracking-wide text-paper border border-line rounded-lg bg-surface/80 px-3.5 py-2.5 backdrop-blur-md transition-all duration-300;
+    box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.9);
+  }
+  .btn-back:hover {
+    @apply border-signal text-signal bg-surface;
+    transform: translateX(-2px);
+    box-shadow: 0 12px 28px -18px rgba(139, 226, 139, 0.55);
+  }
+  .btn-back__icon {
+    @apply inline-flex items-center justify-center w-7 h-7 rounded-md border border-line bg-surface2 transition-transform duration-300;
+  }
+  .btn-back:hover .btn-back__icon {
+    transform: translateX(-2px);
+  }
+}
+
+/* ============================================================
+   3. FONDO DE "PLANO TÉCNICO" (blueprint)
+   Cuadrícula sutil usada en el Hero y en Contacto.
+   ============================================================ */
+.blueprint-bg {
+  background: transparent;
+}
+
+/* ============================================================
+   4. SISTEMA DE ANIMACIÓN "REVEAL ON SCROLL"
+   Usado por la directiva v-revelar (ver codigo/directivas/revelarAlEntrar.js)
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   5. TARJETA CON "SPOTLIGHT" QUE SIGUE AL CURSOR
+   Las variables --x y --y las actualiza JS en TarjetaProyecto.vue
+   con el evento @mousemove, y aquí se usan en un gradiente radial.
+   ============================================================ */
+.spot-card {
+  position: relative;
+  isolation: isolate;
+}
+.spot-card::before {
+  /* Borde brillante que sigue al cursor */
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    380px circle at var(--x, 50%) var(--y, 50%),
+    rgba(76, 201, 240, 0.55),
+    transparent 60%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.spot-card::after {
+  /* Resplandor suave de fondo que sigue al cursor */
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(500px circle at var(--x, 50%) var(--y, 50%), rgba(76, 201, 240, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.spot-card:hover::before,
+.spot-card:hover::after {
+  opacity: 1;
+}
+
+/* ============================================================
+   6. PILA DE SISTEMAS EN 3D (Hero)
+   Ver componente PilaSistemas.vue. El grupo completo rota siguiendo
+   al cursor (JS actualiza el 'transform' inline); cada capa además
+   flota de forma continua e independiente vía @keyframes.
+   ============================================================ */
+.pila-3d {
+  perspective: 1400px;
+}
+.pila-3d__grupo {
+  position: relative;
+  height: 300px;
+  transform-style: preserve-3d;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pila-3d__capa {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pila-3d__contenido {
+  padding: 0.9rem 1.1rem;
+  animation: capa-flotar 6.5s ease-in-out infinite;
+}
+.pila-3d__contenido--frente {
+  border-color: rgba(76, 201, 240, 0.4);
+  box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.65);
+}
+@keyframes capa-flotar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ============================================================
+   7. FONDO DE HERO CON PARALLAX SUTIL
+   La sección Hero actualiza --parallax-x/--parallax-y en JS
+   (ver SeccionInicio.vue, función alMoverFondo) según la posición
+   del cursor; aquí se usa ese valor para desplazar la cuadrícula.
+   ============================================================ */
+.blueprint-bg-interactivo {
+  background-position: calc(50% + var(--parallax-x, 0px)) calc(50% + var(--parallax-y, 0px));
+  transition: background-position 0.2s ease-out;
+}
+
+/* Aparición simple con fundido, usada en textos del Hero */
+.fade-in {
+  animation: aparecer 1s ease forwards;
+}
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   8. TEXTURA DE GRANO SUTIL (acabado premium)
+   Un ruido casi imperceptible sobre todo el sitio, generado con SVG
+   (sin descargar ninguna imagen). No interfiere con los clics.
+   ============================================================ */
+.textura-ruido {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* ============================================================
+   9. TRANSICIÓN ENTRE PÁGINAS (Vue Router)
+   Envuelve <RouterView> en Aplicacion.vue. 'mode="out-in"' hace que
+   la página saliente termine de desaparecer antes de que entre la
+   nueva, evitando que se superpongan.
+   ============================================================ */
+.pagina-enter-active,
+.pagina-leave-active {
+  transition:
+    opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pagina-enter-from {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.pagina-leave-to {
+  opacity: 0;
+  transform: translateY(-18px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pagina-enter-active,
+  .pagina-leave-active {
+    transition: none !important;
+  }
+}
+
+/* ============================================================
+   10. ACCESIBILIDAD: respeta la preferencia de "reducir movimiento"
+   del sistema operativo del usuario, desactivando animaciones.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .pila-3d__grupo,
+  .pila-3d__capa {
+    transition: none !important;
+  }
+  .pila-3d__contenido {
+    animation: none !important;
+  }
+}
