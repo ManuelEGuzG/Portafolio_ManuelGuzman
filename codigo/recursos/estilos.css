@@ -302,10 +302,16 @@
 @media (max-width: 639px) {
   .pila-3d {
     perspective: 900px;
+    width: min(100%, 300px);
+    margin-inline: auto;
   }
 
   .pila-3d__grupo {
-    height: 245px;
+    width: 128%;
+    margin-left: -14%;
+    height: 215px;
+    transform-origin: center center;
+    scale: 0.78;
   }
 
   .pila-3d__capa {
