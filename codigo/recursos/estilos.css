@@ -312,6 +312,7 @@
     height: 215px;
     transform-origin: center center;
     scale: 0.78;
+    translate: -6px 0;
   }
 
   .pila-3d__capa {
