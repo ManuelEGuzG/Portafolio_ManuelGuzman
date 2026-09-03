@@ -21,7 +21,7 @@ const containerRef = ref(null)
 const cardRefs = ref([])
 const order = ref([])
 const isMobile = ref(false)
-const containerWidth = ref(typeof props.width === 'number' ? props.width : 360)
+const containerWidth = ref(360)
 
 let intervalId = null
 let tl = null
@@ -29,10 +29,17 @@ let resizeObserver = null
 
 const slots = useSlots()
 
-// Ajustes responsivos calculados
-const responsiveCardDistance = computed(() => isMobile.value ? props.cardDistance * 0.65 : props.cardDistance)
-const responsiveVerticalDistance = computed(() => isMobile.value ? props.verticalDistance * 0.7 : props.verticalDistance)
-const responsiveCardWidth = computed(() => Math.min(containerWidth.value * 0.82, typeof props.width === 'number' ? props.width : 360))
+// Distancias reducidas dinámicamente según el espacio disponible
+const responsiveCardDistance = computed(() => isMobile.value ? props.cardDistance * 0.45 : props.cardDistance)
+const responsiveVerticalDistance = computed(() => isMobile.value ? props.verticalDistance * 0.6 : props.verticalDistance)
+
+// Calculamos un tamaño seguro que impida el desborde en pantallas estrechas
+const responsiveCardWidth = computed(() => {
+  const maxSafeWidth = containerWidth.value - (responsiveCardDistance.value * (props.maxVisible - 1) + 20)
+  const baseWidth = typeof props.width === 'number' ? props.width : 360
+  return Math.max(220, Math.min(baseWidth, maxSafeWidth))
+})
+
 const responsiveCardHeight = computed(() => responsiveCardWidth.value * (220 / 360))
 
 const getValidChildren = () => {
@@ -284,21 +291,22 @@ onUnmounted(() => {
   align-items: center;
   width: 100%;
   max-width: 100%;
-  padding: 10px 0;
+  padding: 10px 16px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .card-swap-container {
   position: relative;
   perspective: 1000px;
   overflow: visible;
-  margin: 25px auto 10px auto;
+  margin: 30px auto 10px auto;
 }
 
 .card-swap-item {
   position: absolute;
   top: 50%;
-  left: 45%;
+  left: 38%; /* Desplazado ligeramente a la izquierda para compensar la acumulación a la derecha */
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: #0d111a;
@@ -349,13 +357,17 @@ onUnmounted(() => {
 }
 
 @media (max-width: 640px) {
+  .card-swap-item {
+    left: 32%; /* Compensación mayor para pantallas delgadas */
+  }
+
   .card-swap-container {
-    margin-top: 15px;
+    margin-top: 20px;
   }
   
   .nav-btn {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
   }
 }
 </style>
