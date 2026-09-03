@@ -6,8 +6,8 @@ import { gsap } from 'gsap'
 const props = defineProps({
   width: { type: [Number, String], default: 360 },
   height: { type: [Number, String], default: 220 },
-  cardDistance: { type: Number, default: 28 },
-  verticalDistance: { type: Number, default: 18 },
+  cardDistance: { type: Number, default: 22 },
+  verticalDistance: { type: Number, default: 14 },
   maxVisible: { type: Number, default: 4 },
   delay: { type: Number, default: 1600 },
   pauseOnHover: { type: Boolean, default: true },
@@ -29,15 +29,16 @@ let resizeObserver = null
 
 const slots = useSlots()
 
-// Distancias reducidas dinámicamente según el espacio disponible
-const responsiveCardDistance = computed(() => isMobile.value ? props.cardDistance * 0.45 : props.cardDistance)
-const responsiveVerticalDistance = computed(() => isMobile.value ? props.verticalDistance * 0.6 : props.verticalDistance)
+// Distancia reducida según pantalla para garantizar que la última tarjeta nunca se salga del borde derecho
+const responsiveCardDistance = computed(() => isMobile.value ? 10 : props.cardDistance)
+const responsiveVerticalDistance = computed(() => isMobile.value ? 8 : props.verticalDistance)
 
-// Calculamos un tamaño seguro que impida el desborde en pantallas estrechas
+// Calculamos un tamaño dinámico pero seguro para el viewport actual
 const responsiveCardWidth = computed(() => {
-  const maxSafeWidth = containerWidth.value - (responsiveCardDistance.value * (props.maxVisible - 1) + 20)
+  const maxStackOffset = responsiveCardDistance.value * (props.maxVisible - 1)
+  const availableWidth = containerWidth.value - maxStackOffset - 24 // Margen de seguridad
   const baseWidth = typeof props.width === 'number' ? props.width : 360
-  return Math.max(220, Math.min(baseWidth, maxSafeWidth))
+  return Math.max(200, Math.min(baseWidth, availableWidth))
 })
 
 const responsiveCardHeight = computed(() => responsiveCardWidth.value * (220 / 360))
@@ -83,8 +84,6 @@ const aplicarPosicionesIniciales = () => {
       z: slot.z,
       opacity: slot.opacity,
       scale: slot.scale,
-      xPercent: -50,
-      yPercent: -50,
       skewY: props.skewAmount,
       zIndex: slot.zIndex,
       force3D: true
@@ -245,12 +244,13 @@ onUnmounted(() => {
 
 <template>
   <div ref="wrapperRef" class="card-swap-wrapper">
+    <!-- Contenedor centrado dinámicamente incluyendo el desfase de la pila -->
     <div
       ref="containerRef"
       class="card-swap-container"
       :style="{
-        width: `${responsiveCardWidth}px`,
-        height: `${responsiveCardHeight}px`
+        width: `${responsiveCardWidth + (responsiveCardDistance * (maxVisible - 1))}px`,
+        height: `${responsiveCardHeight + (responsiveVerticalDistance * (maxVisible - 1))}px`
       }"
     >
       <div
@@ -291,7 +291,7 @@ onUnmounted(() => {
   align-items: center;
   width: 100%;
   max-width: 100%;
-  padding: 10px 16px;
+  padding: 10px 0;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -300,13 +300,14 @@ onUnmounted(() => {
   position: relative;
   perspective: 1000px;
   overflow: visible;
-  margin: 30px auto 10px auto;
+  margin: 25px auto 10px auto;
 }
 
 .card-swap-item {
   position: absolute;
-  top: 50%;
-  left: 38%; /* Desplazado ligeramente a la izquierda para compensar la acumulación a la derecha */
+  top: auto;
+  bottom: 0;
+  left: 0;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: #0d111a;
@@ -314,7 +315,7 @@ onUnmounted(() => {
   cursor: pointer;
   transform-style: preserve-3d;
   will-change: transform, opacity;
-  box-shadow: -8px 12px 25px rgba(0, 0, 0, 0.6);
+  box-shadow: -6px 10px 20px rgba(0, 0, 0, 0.6);
 }
 
 .card-swap-item :deep(img) {
@@ -357,12 +358,8 @@ onUnmounted(() => {
 }
 
 @media (max-width: 640px) {
-  .card-swap-item {
-    left: 32%; /* Compensación mayor para pantallas delgadas */
-  }
-
   .card-swap-container {
-    margin-top: 20px;
+    margin-top: 15px;
   }
   
   .nav-btn {
