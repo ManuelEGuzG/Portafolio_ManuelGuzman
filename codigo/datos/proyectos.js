@@ -18,21 +18,27 @@
  */
 export const proyectos = [
   {
-    id: 'p1',
-    titulo: 'Sistema Web para Gestión de Órdenes',
-    descripcion:
-      'Aplicación web bajo arquitectura Modelo-Vista-Controlador (MVC), con módulos para gestión de órdenes y registros, aplicando conceptos de análisis y diseño de sistemas. Integración con SQL Server para almacenamiento y consulta de información, y participación en el diseño de la lógica de negocio y estructura funcional del sistema.',
-    tecnologias: ['ASP.NET MVC', 'C#', 'SQL Server'],
-    tipo: 'academico',
-    urlDemo: '',
-    imagenes: [
-      // Agrega hasta 30 rutas de imagen por proyecto
-      // '/Imagenes/p1/1.png',
-      // '/Imagenes/p1/2.png'
-    ],
-    documentos: [],
-    estadisticas: { agregadas: 980, eliminadas: 120 }
-  },
+  id: 'p1',
+  imagen: '/Imagenes/p1/1.png',
+  titulo: 'Sportra — Plataforma de Reserva de Canchas',
+  descripcion:
+    'Plataforma web para descubrir complejos deportivos y solicitar reservas de canchas. Permite buscar por ubicación, consultar disponibilidad y administrar horarios, reservas y bloqueos desde un panel para propietarios. Incluye herramientas administrativas para gestionar complejos, usuarios, verificaciones y reportes, además de actualización en tiempo real de la disponibilidad.',
+  tecnologias: ['Vue 3', 'TypeScript', 'Ionic', 'Laravel', 'PHP', 'SQLite/MySQL', 'Laravel Reverb'],
+  tipo: 'personal',
+  urlDemo: '',
+  imagenes: [
+    '/Imagenes/p1/1.png',
+    '/Imagenes/p1/2.png',
+    '/Imagenes/p1/3.png',
+    '/Imagenes/p1/4.png',
+    '/Imagenes/p1/5.png',
+    '/Imagenes/p1/6.png'
+
+
+  ],
+  documentos: [],
+  estadisticas: { agregadas: 0, eliminadas: 0 }
+},
   {
     id: 'p2',
     imagen: '/Imagenes/p2/1.png',
