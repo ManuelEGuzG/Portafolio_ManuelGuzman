@@ -35,13 +35,18 @@ export const proyectos = [
   },
   {
     id: 'p2',
+    imagen: '/Imagenes/p2/1.png',
     titulo: 'Aplicación E-commerce para Tienda de Ropa',
     descripcion:
       'Aplicación orientada a la gestión de ventas y operaciones comerciales, con desarrollo de componentes frontend y backend. Modelado y gestión de información mediante PostgreSQL, integración de servicios vía Web API, y configuración de base de datos en entorno virtualizado con esquema de conexión remota entre distintas terminales.',
     tecnologias: ['ASP.NET Core', 'PostgreSQL', 'Web API'],
     tipo: 'academico',
     urlDemo: '',
-    imagenes: [],
+    imagenes: [
+      '/Imagenes/p2/1.png',
+      '/Imagenes/p2/2.png'
+
+    ],
     documentos: [],
     estadisticas: { agregadas: 1150, eliminadas: 200 }
   },
