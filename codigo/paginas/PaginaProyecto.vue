@@ -61,46 +61,12 @@ const cerrarModal = () => {
         </div>
       </header>
 
-      <main class="max-w-4xl mx-auto px-4 sm:px-6 pb-20 grid sm:grid-cols-[1fr_260px] gap-10">
+      <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-20 grid sm:grid-cols-[1fr_260px] gap-10">
         <div v-revelar="{ delay: 80 }">
           <p class="blueprint-tag mb-3">Descripción</p>
           <p class="text-muted leading-relaxed text-base sm:text-lg">
             {{ proyecto.descripcion }}
           </p>
-
-          <!-- Componente CardSwap (IntercambioTarjetas) -->
-          <div v-if="proyecto.imagenes?.length" class="mt-12 overflow-hidden py-6">
-            <p class="blueprint-tag mb-6">Galería de capturas ({{ proyecto.imagenes.length }})</p>
-            
-            <div class="h-[380px] sm:h-[440px] flex items-center justify-center">
-              <IntercambioTarjetas
-                :width="360"
-                :height="240"
-                :card-distance="45"
-                :vertical-distance="45"
-                :delay="4000"
-                easing="elastic"
-                :pause-on-hover="true"
-                @click-card="(idx) => abrirModal(proyecto.imagenes[idx])"
-              >
-                <div 
-                  v-for="(img, idx) in proyecto.imagenes" 
-                  :key="idx"
-                  class="w-full h-full relative group"
-                >
-                  <img 
-                    :src="img" 
-                    :alt="`Captura ${idx + 1}`" 
-                    class="w-full h-full object-contain bg-black/95"
-                  />
-                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex justify-between items-center text-xs font-mono text-paper">
-                    <span>Captura {{ idx + 1 }}</span>
-                    <span class="text-signal text-[10px]">Ampliar</span>
-                  </div>
-                </div>
-              </IntercambioTarjetas>
-            </div>
-          </div>
 
           <div class="flex items-center gap-3 mt-8 font-mono text-xs text-muted">
             <span class="text-signal">+{{ proyecto.estadisticas.agregadas }}</span>
@@ -143,11 +109,41 @@ const cerrarModal = () => {
             </ul>
           </div>
         </aside>
+
+        <div v-if="proyecto.imagenes?.length" class="mt-2 py-6 sm:col-span-2">
+          <p class="blueprint-tag mb-6">Galería de capturas ({{ proyecto.imagenes.length }})</p>
+
+          <IntercambioTarjetas
+            :width="900"
+            :card-distance="32"
+            :vertical-distance="32"
+            :delay="4000"
+            easing="elastic"
+            :pause-on-hover="true"
+            @click-card="(idx) => abrirModal(proyecto.imagenes[idx])"
+          >
+            <div
+              v-for="(img, idx) in proyecto.imagenes"
+              :key="idx"
+              class="w-full h-full relative group"
+            >
+              <img
+                :src="img"
+                :alt="`Captura ${idx + 1}`"
+                class="w-full h-full object-contain bg-black/95"
+              />
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex justify-between items-center text-xs font-mono text-paper">
+                <span>Captura {{ idx + 1 }}</span>
+                <span class="text-signal text-[10px]">Ampliar</span>
+              </div>
+            </div>
+          </IntercambioTarjetas>
+        </div>
       </main>
 
       <nav
         v-if="proyectoAnterior || proyectoSiguiente"
-        class="border-t border-line max-w-4xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-2 items-start gap-4 font-mono text-xs"
+        class="border-t border-line max-w-6xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-2 items-start gap-4 font-mono text-xs"
       >
         <RouterLink
           v-if="proyectoAnterior"
