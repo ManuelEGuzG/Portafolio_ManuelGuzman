@@ -124,7 +124,12 @@ export const proyectos = [
     tipo: 'academico',
     urlDemo: 'https://manueleguzg.github.io/Norte-Song/',
     imagenes: [
-      '/Imagenes/NorteSong.png'
+      '/Imagenes/NorteSong.png',
+      '/Imagenes/p7/1.png',
+      '/Imagenes/p7/2.png',
+      '/Imagenes/p7/3.png',
+      '/Imagenes/p7/4.png',
+      '/Imagenes/p7/5.png'
     ],
     documentos: [],
     estadisticas: { agregadas: 1620, eliminadas: 280 }
