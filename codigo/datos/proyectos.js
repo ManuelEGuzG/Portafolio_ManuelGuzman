@@ -102,13 +102,21 @@ export const proyectos = [
     tipo: 'academico',
     urlDemo: 'https://manueleguzg.github.io/Gu-a-Tur-stica-Multimedia-de-Costa-Rica/',
     imagenes: [
-      '/Imagenes/Guia.png'
+      '/Imagenes/Guia.png',
+      '/Imagenes/p6/1.png',
+      '/Imagenes/p6/2.png',
+      '/Imagenes/p6/3.png',
+      '/Imagenes/p6/4.png',
+      '/Imagenes/p6/5.png',
+      '/Imagenes/p6/6.png'
+
     ],
     documentos: [],
     estadisticas: { agregadas: 1620, eliminadas: 280 }
   },
   {
     id: 'p7',
+    imagen: '/Imagenes/NorteSong.png',
     titulo: 'Cancionero Digital — Iglesia del Norte',
     descripcion:
       'Aplicación web multimedia desarrollada con Vue 3 para la gestión y presentación del repertorio musical de la Iglesia del Norte.',
