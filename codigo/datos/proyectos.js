@@ -79,6 +79,7 @@ export const proyectos = [
   },
   {
     id: 'p5',
+    imagen: '/Imagenes/Bovweight.png',
     titulo: 'BovWeight CR — Sistema de Estimación de Peso de Bovinos',
     descripcion:
       'Sistema para estimar el peso de bovinos a partir de imágenes, con backend en Laravel integrado al frontend en Vue.js mediante API. Incorpora un módulo en Python para el procesamiento/estimación con IA y una app en Android Studio para captura en campo. Uso de Docker y Git durante el desarrollo y mantenimiento del proyecto.',
@@ -93,6 +94,7 @@ export const proyectos = [
   },
   {
     id: 'p6',
+    imagen: '/Imagenes/Guia.png',
     titulo: 'Guía Turística Multimedia de Costa Rica',
     descripcion:
       'Aplicación web interactiva que permite explorar destinos turísticos de Costa Rica a través de imágenes, audio, video y datos estructurados. Desarrollada íntegramente con tecnologías nativas del navegador: HTML5, CSS3, JavaScript ES6+ y la API de Web Components.',
