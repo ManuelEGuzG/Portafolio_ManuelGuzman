@@ -10,13 +10,17 @@
   -----------------------------------------------------------------------
 -->
 <script setup>
+import { computed } from 'vue'
 import { perfil } from '@/datos/perfil.js'
+import { perfilLocalizado } from '@/composables/usarIdioma.js'
 import BarraNavegacion from '@/componentes/BarraNavegacion.vue'
 import SeccionInicio from '@/componentes/SeccionInicio.vue'
 import GaleriaProyectos from '@/componentes/GaleriaProyectos.vue'
 import SeccionSobreMi from '@/componentes/SeccionSobreMi.vue'
 import SeccionContacto from '@/componentes/SeccionContacto.vue'
 import LogosTecnologias from '@/componentes/LogosTecnologias.vue'
+
+const perfilTraducido = computed(() => perfilLocalizado(perfil))
 </script>
 
 <template>
@@ -25,14 +29,14 @@ import LogosTecnologias from '@/componentes/LogosTecnologias.vue'
 
     <main>
       <SeccionInicio
-        :nombre="perfil.nombre"
-        :rol="perfil.rol"
-        :biografia="perfil.biografia"
-        :url-github="perfil.urlGithub"
-        :url-linkedin="perfil.urlLinkedin"
-        :url-cv="perfil.urlCv"
-        :estado="perfil.estado"
-        :capas="perfil.capasTecnicas"
+        :nombre="perfilTraducido.nombre"
+        :rol="perfilTraducido.rol"
+        :biografia="perfilTraducido.biografia"
+        :url-github="perfilTraducido.urlGithub"
+        :url-linkedin="perfilTraducido.urlLinkedin"
+        :url-cv="perfilTraducido.urlCv"
+        :estado="perfilTraducido.estado"
+        :capas="perfilTraducido.capasTecnicas"
       />
 
       <GaleriaProyectos />

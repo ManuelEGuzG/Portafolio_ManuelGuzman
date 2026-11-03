@@ -18,16 +18,19 @@
 <script setup>
 import { computed } from 'vue'
 import { ArrowUpRight, BriefcaseBusiness, GraduationCap, Wrench } from '@lucide/vue'
+import { proyectoLocalizado, t, tecnologiaLocalizada } from '@/composables/usarIdioma.js'
 
 const props = defineProps({
   proyecto: { type: Object, required: true }
 })
 
 // Traduce el valor interno del campo 'tipo' a un texto legible.
+const proyectoTraducido = computed(() => proyectoLocalizado(props.proyecto))
+
 const etiquetasDeTipo = {
-  academico: 'Académico',
-  cliente: 'Cliente real',
-  personal: 'Personal'
+  academico: 'academic',
+  cliente: 'client',
+  personal: 'personal'
 }
 
 // Ícono decorativo según la categoría del proyecto.
@@ -43,7 +46,7 @@ const iconosDeTipo = {
  * (ej: "NexusStore..." -> "NS").
  */
 const iniciales = computed(() => {
-  return props.proyecto.titulo
+  return proyectoTraducido.value.titulo
     .trim()
     .split(/\s+/)
     .slice(0, 2)
@@ -66,19 +69,19 @@ function alMoverMouse(evento) {
 
 <template>
   <RouterLink
-    :to="`/proyecto/${proyecto.id}`"
+    :to="`/proyecto/${proyectoTraducido.id}`"
     class="spot-card panel overflow-hidden flex flex-col h-full group transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
     @mousemove="alMoverMouse"
   >
     <!-- Portada visual del proyecto, con monograma como fallback -->
     <div class="relative h-40 flex items-center justify-center overflow-hidden blueprint-bg border-b border-line shrink-0">
       <img
-        v-if="proyecto.imagen"
-        :src="proyecto.imagen"
-        :alt="`Vista previa de ${proyecto.titulo}`"
+        v-if="proyectoTraducido.imagen"
+        :src="proyectoTraducido.imagen"
+        :alt="t('projects.preview', { title: proyectoTraducido.titulo })"
         class="absolute inset-0 w-full h-full object-cover opacity-75 transition-transform duration-500 group-hover:scale-105"
       />
-      <div v-if="proyecto.imagen" class="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
+      <div v-if="proyectoTraducido.imagen" class="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
       <span v-else class="font-display text-4xl font-semibold text-signal/25 tracking-wider select-none">
         {{ iniciales }}
       </span>
@@ -88,25 +91,25 @@ function alMoverMouse(evento) {
     <div class="relative z-[2] flex flex-col h-full p-4 sm:p-6 min-w-0">
       <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 min-w-0">
         <h3 class="font-display font-semibold text-paper text-lg leading-snug break-words min-w-0">
-          {{ proyecto.titulo }}
+          {{ proyectoTraducido.titulo }}
         </h3>
-        <span class="tag self-start shrink-0">{{ etiquetasDeTipo[proyecto.tipo] }}</span>
+        <span class="tag self-start shrink-0">{{ t(`projects.${etiquetasDeTipo[proyectoTraducido.tipo]}`) }}</span>
       </div>
 
       <p class="text-muted text-sm mt-3 flex-1 leading-relaxed line-clamp-3">
-        {{ proyecto.descripcion }}
+        {{ proyectoTraducido.descripcion }}
       </p>
 
       <!-- Todas las tecnologías del proyecto, sin recortar -->
       <div class="flex flex-wrap gap-2 mt-4">
-        <span v-for="tecnologia in proyecto.tecnologias" :key="tecnologia" class="tag">
-          {{ tecnologia }}
+        <span v-for="tecnologia in proyectoTraducido.tecnologias" :key="tecnologia" class="tag">
+          {{ tecnologiaLocalizada(tecnologia) }}
         </span>
       </div>
 
       <!-- Indicador de navegación a la página de detalle -->
       <div class="mt-5 flex items-center gap-1.5 font-mono text-xs text-signal">
-        Ver caso completo
+        {{ t('projects.case') }}
         <ArrowUpRight :size="15" class="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
       </div>
     </div>

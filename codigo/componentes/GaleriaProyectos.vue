@@ -13,6 +13,7 @@
 <script setup>
 import { ref, computed, nextTick } from 'vue'
 import { proyectos, tiposDeProyecto } from '@/datos/proyectos.js'
+import { t, tiposDeProyectoLocalizados } from '@/composables/usarIdioma.js'
 import FiltroProyectos from './FiltroProyectos.vue'
 import TarjetaProyecto from './TarjetaProyecto.vue'
 
@@ -20,6 +21,7 @@ import TarjetaProyecto from './TarjetaProyecto.vue'
 const tecnologiaActiva = ref(null)
 const tipoActivo = ref(null)
 const contenedorResultados = ref(null)
+const tiposTraducidos = tiposDeProyectoLocalizados(tiposDeProyecto)
 
 /**
  * Lista de tecnologías únicas, calculada automáticamente a partir de
@@ -86,11 +88,10 @@ function reiniciarFiltros() {
 <template>
   <section id="proyectos" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 scroll-mt-16">
     <div v-revelar>
-      <p class="blueprint-tag">Sec. 02</p>
-      <h2 class="font-display font-semibold text-3xl sm:text-4xl mt-3">Proyectos destacados</h2>
+      <p class="blueprint-tag">{{ t('section') }} 02</p>
+      <h2 class="font-display font-semibold text-3xl sm:text-4xl mt-3">{{ t('projects.section') }}</h2>
       <p class="text-muted mt-3 max-w-lg">
-        Aplicaciones desarrolladas durante la carrera, cubriendo desarrollo web, bases de datos,
-        infraestructura e integración de IA.
+        {{ t('projects.intro') }}
       </p>
     </div>
 
@@ -99,7 +100,7 @@ function reiniciarFiltros() {
       <div v-revelar="{ delay: 100 }">
         <FiltroProyectos
           :tecnologias="tecnologiasDisponibles"
-          :tipos="tiposDeProyecto"
+          :tipos="tiposTraducidos"
           :tecnologia-activa="tecnologiaActiva"
           :tipo-activo="tipoActivo"
           @update:tecnologia-activa="(valor) => actualizarFiltro('tecnologia', valor)"
@@ -111,7 +112,7 @@ function reiniciarFiltros() {
       <!-- Resultados -->
       <div ref="contenedorResultados">
         <p class="font-mono text-xs text-muted mb-4">
-          {{ proyectosFiltrados.length }} proyecto(s) encontrado(s)
+          {{ t('projects.found', { count: proyectosFiltrados.length }) }}
         </p>
 
         <div v-if="proyectosFiltrados.length" class="grid sm:grid-cols-2 gap-5">
@@ -126,7 +127,7 @@ function reiniciarFiltros() {
 
         <!-- Mensaje cuando ningún proyecto cumple los filtros seleccionados -->
         <div v-else class="panel p-10 text-center font-mono text-sm text-muted">
-          No hay proyectos que coincidan con ese filtro.
+          {{ t('projects.none') }}
         </div>
       </div>
     </div>

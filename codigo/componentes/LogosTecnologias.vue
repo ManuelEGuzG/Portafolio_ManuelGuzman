@@ -1,4 +1,6 @@
 <script setup>
+import { t, tecnologiaLocalizada } from '@/composables/usarIdioma.js'
+
 const logos = [
   { nombre: 'PHP', imagen: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
   { nombre: 'JavaScript', imagen: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
@@ -34,12 +36,12 @@ const filas = [logos, [...logos].reverse()]
 </script>
 
 <template>
-  <section class="logos-tecnologias py-6 sm:py-8" aria-label="Tecnologías utilizadas">
+  <section class="logos-tecnologias py-6 sm:py-8" :aria-label="t('logos')">
     <div class="logos-tecnologias__viewport">
       <div v-for="(fila, indiceFila) in filas" :key="indiceFila" class="logos-tecnologias__track" :class="{ 'logos-tecnologias__track--reverse': indiceFila === 1 }">
         <div v-for="(logo, indice) in [...fila, ...fila]" :key="`${indiceFila}-${logo.nombre}-${indice}`" class="logos-tecnologias__item">
-          <img :src="logo.imagen" :alt="logo.nombre" loading="lazy" />
-          <span>{{ logo.nombre }}</span>
+          <img :src="logo.imagen" :alt="tecnologiaLocalizada(logo.nombre)" loading="lazy" />
+          <span>{{ tecnologiaLocalizada(logo.nombre) }}</span>
         </div>
       </div>
     </div>

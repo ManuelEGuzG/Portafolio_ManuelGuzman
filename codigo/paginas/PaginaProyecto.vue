@@ -6,21 +6,19 @@ import { RouterLink } from 'vue-router'
 import { proyectos } from '@/datos/proyectos.js'
 import BarraSimple from '@/componentes/BarraSimple.vue'
 import IntercambioTarjetas from '@/componentes/IntercambioTarjetas.vue'
+import { proyectoLocalizado, t } from '@/composables/usarIdioma.js'
 
 const props = defineProps({
   id: { type: String, required: true }
 })
 
-const etiquetasDeTipo = {
-  academico: 'Académico',
-  cliente: 'Cliente real',
-  personal: 'Personal'
-}
-
 const indiceActual = computed(() => proyectos.findIndex((p) => p.id === props.id))
 
 const proyecto = computed(() =>
   indiceActual.value !== -1 ? proyectos[indiceActual.value] : undefined
+)
+const proyectoTraducido = computed(() =>
+  proyecto.value ? proyectoLocalizado(proyecto.value) : undefined
 )
 
 const proyectoAnterior = computed(() => (indiceActual.value > 0 ? proyectos[indiceActual.value - 1] : null))
@@ -49,9 +47,9 @@ const cerrarModal = () => {
     <template v-if="proyecto">
       <header class="relative overflow-hidden pt-32 pb-14 px-4 sm:px-6">
         <div class="relative max-w-4xl mx-auto" v-revelar>
-          <p class="blueprint-tag">{{ etiquetasDeTipo[proyecto.tipo] }}</p>
+          <p class="blueprint-tag">{{ t(`projects.${{ academico: 'academic', cliente: 'client', personal: 'personal' }[proyecto.tipo]}`) }}</p>
           <h1 class="font-display font-semibold text-3xl sm:text-5xl mt-4 leading-tight text-paper break-words">
-            {{ proyecto.titulo }}
+            {{ proyectoTraducido.titulo }}
           </h1>
           <div class="flex flex-wrap gap-2 mt-6">
             <span v-for="tecnologia in proyecto.tecnologias" :key="tecnologia" class="tag">
@@ -63,9 +61,9 @@ const cerrarModal = () => {
 
       <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-20 grid sm:grid-cols-[1fr_260px] gap-10">
         <div v-revelar="{ delay: 80 }">
-          <p class="blueprint-tag mb-3">Descripción</p>
+          <p class="blueprint-tag mb-3">{{ t('detail.description') }}</p>
           <p class="text-muted leading-relaxed text-base sm:text-lg">
-            {{ proyecto.descripcion }}
+            {{ proyectoTraducido.descripcion }}
           </p>
 
           <div class="flex items-center gap-3 mt-8 font-mono text-xs text-muted">
@@ -76,7 +74,7 @@ const cerrarModal = () => {
 
         <aside v-revelar="{ delay: 160 }" class="space-y-6">
           <div class="panel p-5">
-            <p class="blueprint-tag mb-4">Demostración</p>
+            <p class="blueprint-tag mb-4">{{ t('detail.demo') }}</p>
             <div class="flex flex-col gap-3">
               <a
                 v-if="proyecto.urlDemo"
@@ -85,16 +83,16 @@ const cerrarModal = () => {
                 rel="noopener"
                 class="btn-primary justify-center w-full break-words text-center"
               >
-                Ver demo <ExternalLink :size="15" aria-hidden="true" />
+                {{ t('detail.viewDemo') }} <ExternalLink :size="15" aria-hidden="true" />
               </a>
               <p v-else class="font-mono text-xs text-muted">
-                Demo no disponible públicamente.
+                {{ t('detail.noDemo') }}
               </p>
             </div>
           </div>
 
           <div v-if="proyecto.documentos?.length" class="panel p-5">
-            <p class="blueprint-tag mb-4">Documentos</p>
+            <p class="blueprint-tag mb-4">{{ t('detail.documents') }}</p>
             <ul class="space-y-2.5">
               <li v-for="documento in proyecto.documentos" :key="documento.url">
                 <a
@@ -111,7 +109,7 @@ const cerrarModal = () => {
         </aside>
 
         <div v-if="proyecto.imagenes?.length" class="mt-2 py-6 sm:col-span-2">
-          <p class="blueprint-tag mb-6">Galería de capturas ({{ proyecto.imagenes.length }})</p>
+          <p class="blueprint-tag mb-6">{{ t('detail.gallery', { count: proyecto.imagenes.length }) }}</p>
 
           <IntercambioTarjetas
             :width="900"
@@ -129,12 +127,12 @@ const cerrarModal = () => {
             >
               <img
                 :src="img"
-                :alt="`Captura ${idx + 1}`"
+                :alt="t('detail.screenshot', { number: idx + 1 })"
                 class="w-full h-full object-contain bg-black/95"
               />
               <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex justify-between items-center text-xs font-mono text-paper">
-                <span>Captura {{ idx + 1 }}</span>
-                <span class="text-signal text-[10px]">Ampliar</span>
+                <span>{{ t('detail.screenshot', { number: idx + 1 }) }}</span>
+                <span class="text-signal text-[10px]">{{ t('detail.enlarge') }}</span>
               </div>
             </div>
           </IntercambioTarjetas>
@@ -151,7 +149,7 @@ const cerrarModal = () => {
           class="text-muted hover:text-signal transition-colors duration-300 min-w-0"
         >
           <span class="inline-flex items-start gap-1.5 max-w-full break-words">
-            <ArrowLeft class="shrink-0 mt-0.5" :size="14" aria-hidden="true" /> {{ proyectoAnterior.titulo }}
+            <ArrowLeft class="shrink-0 mt-0.5" :size="14" aria-hidden="true" /> {{ proyectoLocalizado(proyectoAnterior).titulo }}
           </span>
         </RouterLink>
         <span v-else />
@@ -162,7 +160,7 @@ const cerrarModal = () => {
           class="text-muted hover:text-signal transition-colors duration-300 min-w-0 text-right"
         >
           <span class="inline-flex items-start justify-end gap-1.5 max-w-full break-words">
-            {{ proyectoSiguiente.titulo }} <ArrowRight class="shrink-0 mt-0.5" :size="14" aria-hidden="true" />
+            {{ proyectoLocalizado(proyectoSiguiente).titulo }} <ArrowRight class="shrink-0 mt-0.5" :size="14" aria-hidden="true" />
           </span>
         </RouterLink>
       </nav>
@@ -178,13 +176,13 @@ const cerrarModal = () => {
             <button
               class="absolute -top-10 right-0 text-paper hover:text-signal p-2 transition-colors"
               @click="cerrarModal"
-              aria-label="Cerrar vista previa"
+              :aria-label="t('detail.closePreview')"
             >
               <X :size="24" />
             </button>
             <img
               :src="imagenModal"
-              alt="Vista ampliada"
+              :alt="t('detail.enlarged')"
               class="max-w-full max-h-[85vh] object-contain rounded border border-line"
             />
           </div>
@@ -195,11 +193,11 @@ const cerrarModal = () => {
     <template v-else>
       <div class="min-h-screen flex flex-col items-center justify-center text-center px-4">
         <p class="blueprint-tag">404</p>
-        <h1 class="font-display text-2xl sm:text-3xl mt-3">Proyecto no encontrado</h1>
-        <p class="text-muted mt-2">El proyecto que buscas no existe o fue movido.</p>
-        <RouterLink to="/" class="btn-back mt-6" aria-label="Volver al portafolio">
+        <h1 class="font-display text-2xl sm:text-3xl mt-3">{{ t('detail.notFound') }}</h1>
+        <p class="text-muted mt-2">{{ t('detail.missingProject') }}</p>
+        <RouterLink to="/" class="btn-back mt-6" :aria-label="t('back')">
           <span class="btn-back__icon"><ArrowLeft :size="14" :stroke-width="1.8" aria-hidden="true" /></span>
-          Volver al portafolio
+          {{ t('back') }}
         </RouterLink>
       </div>
     </template>

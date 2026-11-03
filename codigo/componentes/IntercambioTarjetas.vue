@@ -2,6 +2,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, useSlots, Comment, computed } from 'vue'
 import { gsap } from 'gsap'
+import { t } from '@/composables/usarIdioma.js'
 
 const props = defineProps({
   width: { type: [Number, String], default: 360 },
@@ -270,12 +271,12 @@ onUnmounted(() => {
 
     <!-- Botones de navegación -->
     <div class="controls-container">
-      <button class="nav-btn" aria-label="Foto anterior" @click="handleManualPrev">
+      <button class="nav-btn" :aria-label="t('detail.previousImage')" @click="handleManualPrev">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
       </button>
-      <button class="nav-btn" aria-label="Siguiente foto" @click="handleManualNext">
+      <button class="nav-btn" :aria-label="t('detail.nextImage')" @click="handleManualNext">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>

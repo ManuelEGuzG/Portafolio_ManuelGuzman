@@ -9,6 +9,7 @@
 <script setup>
 import { Code2, Link2, Mail, MapPin, Phone } from '@lucide/vue'
 import BotonMagnetico from './BotonMagnetico.vue'
+import { t } from '@/composables/usarIdioma.js'
 
 defineProps({
   correo: { type: String, required: true },
@@ -22,13 +23,10 @@ defineProps({
 <template>
   <section id="contacto" class="relative overflow-hidden blueprint-bg scroll-mt-16">
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center" v-revelar>
-      <p class="blueprint-tag justify-center inline-flex">Sec. 04</p>
-      <h2 class="font-display font-semibold text-3xl sm:text-5xl mt-4 leading-tight">
-        Construyamos<br class="hidden sm:block" /> algo juntos.
-      </h2>
+      <p class="blueprint-tag justify-center inline-flex">{{ t('section') }} 04</p>
+      <h2 class="font-display font-semibold text-3xl sm:text-5xl mt-4 leading-tight" v-html="t('contact.title')"></h2>
       <p class="text-muted mt-5 max-w-xl mx-auto">
-        Estoy buscando mi primera oportunidad como desarrollador. Si mi perfil encaja con tu equipo,
-        escríbeme — respondo rápido.
+        {{ t('contact.description') }}
       </p>
 
       <p v-if="ubicacion" class="inline-flex items-center gap-2 font-mono text-xs text-muted mt-6">
@@ -54,7 +52,7 @@ defineProps({
 
     <footer class="relative border-t border-line px-4 sm:px-6 py-6">
       <p class="text-center font-mono text-[11px] text-muted">
-        © {{ new Date().getFullYear() }} Manuel Guzmán — hecho con Vue 3 + Vite + Tailwind
+        © {{ new Date().getFullYear() }} Manuel Guzmán — {{ t('footer') }}
       </p>
     </footer>
   </section>

@@ -11,6 +11,7 @@
 -->
 <script setup>
 import { X } from '@lucide/vue'
+import { t, tecnologiaLocalizada } from '@/composables/usarIdioma.js'
 
 // Props recibidas del componente padre:
 defineProps({
@@ -26,11 +27,11 @@ const emit = defineEmits(['update:tecnologiaActiva', 'update:tipoActivo', 'reini
 
 <template>
   <div class="panel p-5 sm:p-6 lg:sticky lg:top-24">
-    <p class="blueprint-tag">Filtrar</p>
+    <p class="blueprint-tag">{{ t('filters.title') }}</p>
     <div class="section-divider" />
 
     <!-- Filtro por categoría (académico / cliente real / personal) -->
-    <p class="font-mono text-xs text-muted mb-3 mt-4">Categoría</p>
+    <p class="font-mono text-xs text-muted mb-3 mt-4">{{ t('filters.category') }}</p>
     <div class="flex flex-wrap gap-2 mb-6">
       <button
         v-for="tipo in tipos"
@@ -46,7 +47,7 @@ const emit = defineEmits(['update:tecnologiaActiva', 'update:tipoActivo', 'reini
     </div>
 
     <!-- Filtro por tecnología -->
-    <p class="font-mono text-xs text-muted mb-3">Tecnología</p>
+    <p class="font-mono text-xs text-muted mb-3">{{ t('filters.technology') }}</p>
     <div class="flex flex-wrap gap-2">
       <button
         v-for="tecnologia in tecnologias"
@@ -57,7 +58,7 @@ const emit = defineEmits(['update:tecnologiaActiva', 'update:tipoActivo', 'reini
         @mousedown.prevent
         @click="emit('update:tecnologiaActiva', tecnologiaActiva === tecnologia ? null : tecnologia)"
       >
-        {{ tecnologia }}
+        {{ tecnologiaLocalizada(tecnologia) }}
       </button>
     </div>
 
@@ -69,7 +70,7 @@ const emit = defineEmits(['update:tecnologiaActiva', 'update:tipoActivo', 'reini
       @mousedown.prevent
       @click="emit('reiniciar')"
     >
-      <X :size="13" aria-hidden="true" /> limpiar filtros
+      <X :size="13" aria-hidden="true" /> {{ t('filters.clear') }}
     </button>
   </div>
 </template>

@@ -24,6 +24,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { Cloud, Code2, Database, MonitorCog } from '@lucide/vue'
+import { t } from '@/composables/usarIdioma.js'
 
 const props = defineProps({
   capas: { type: Array, required: true }
@@ -31,12 +32,7 @@ const props = defineProps({
 
 const contenedor = ref(null)
 
-const iconosPorCapa = {
-  Frontend: MonitorCog,
-  Backend: Code2,
-  'Base de Datos': Database,
-  Infraestructura: Cloud
-}
+const iconosPorCapa = [Cloud, Database, Code2, MonitorCog]
 
 // Rotación adicional (en grados) que se suma al ángulo base mientras
 // el cursor se mueve sobre el bloque. Empieza en 0 = sin desviación.
@@ -106,7 +102,7 @@ function estiloPosicion(indice) {
         >
           <div class="flex items-center gap-2 mb-2">
             <component
-              :is="iconosPorCapa[capa.titulo] || Code2"
+              :is="iconosPorCapa[indice] || Code2"
               class="text-signal"
               :size="17"
               :stroke-width="1.8"
@@ -124,7 +120,7 @@ function estiloPosicion(indice) {
     </div>
 
     <p class="font-mono text-[10px] sm:text-[11px] text-muted text-center mt-4">
-      De la interfaz a la infraestructura
+      {{ t('hero.direction') }}
     </p>
   </div>
 </template>

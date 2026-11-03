@@ -15,6 +15,7 @@
 import { ArrowDown, Code2, Download, Link2 } from '@lucide/vue'
 import PilaSistemas from './PilaSistemas.vue'
 import BotonMagnetico from './BotonMagnetico.vue'
+import { t } from '@/composables/usarIdioma.js'
 
 defineProps({
   nombre: { type: String, required: true },
@@ -39,7 +40,7 @@ function irAProyectos() {
     >
       <!-- Columna de texto -->
       <div>
-        <p class="blueprint-tag fade-in">Plano / Perfil Técnico</p>
+        <p class="blueprint-tag fade-in">{{ t('hero.label') }}</p>
         <h1 class="font-display font-semibold text-4xl sm:text-6xl leading-[1.05] mt-4 text-paper">
           {{ nombre }}
         </h1>
@@ -59,7 +60,7 @@ function irAProyectos() {
         </p>
 
         <div class="mt-9 flex flex-wrap gap-4">
-          <BotonMagnetico :href="urlCv" download class="btn-primary"><Download :size="16" aria-hidden="true" /> Descargar CV </BotonMagnetico>
+          <BotonMagnetico :href="urlCv" download class="btn-primary"><Download :size="16" aria-hidden="true" /> {{ t('hero.downloadCv') }} </BotonMagnetico>
           <BotonMagnetico :href="urlGithub" target="_blank" rel="noopener" class="btn-ghost">
             <Code2 :size="16" aria-hidden="true" />
             GitHub
@@ -75,7 +76,7 @@ function irAProyectos() {
           class="mt-9 flex items-center gap-2 text-muted font-mono text-[10px] tracking-widest hover:text-signal transition-colors duration-300"
           @click="irAProyectos"
         >
-          VER PROYECTOS
+          {{ t('hero.viewProjects') }}
           <span class="w-8 h-px bg-current" />
           <ArrowDown :size="13" aria-hidden="true" />
         </button>

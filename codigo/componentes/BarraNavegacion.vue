@@ -14,14 +14,16 @@
 import { ref } from 'vue'
 import { Menu, X } from '@lucide/vue'
 import { usarScrollSpy } from '@/composables/usarScrollSpy.js'
+import { t } from '@/composables/usarIdioma.js'
+import SelectorIdioma from './SelectorIdioma.vue'
 
 // Lista de secciones del menú: id = coincide con el id="" de cada <section>,
 // etiqueta = texto visible en el nav.
 const secciones = [
-  { id: 'inicio', etiqueta: 'Inicio' },
-  { id: 'proyectos', etiqueta: 'Proyectos' },
-  { id: 'sobre-mi', etiqueta: 'Perfil' },
-  { id: 'contacto', etiqueta: 'Contacto' }
+  { id: 'inicio', etiqueta: 'home' },
+  { id: 'proyectos', etiqueta: 'projects' },
+  { id: 'sobre-mi', etiqueta: 'profile' },
+  { id: 'contacto', etiqueta: 'contact' }
 ]
 
 // idActivo se actualiza solo mientras el usuario hace scroll (ver composable).
@@ -62,16 +64,19 @@ function irASeccion(id) {
                 v-if="idActivo === seccion.id"
                 class="absolute inset-0 rounded-full bg-signal -z-10 transition-all duration-300"
               />
-              {{ seccion.etiqueta }}
+              {{ t(`nav.${seccion.etiqueta}`) }}
             </button>
           </li>
         </ul>
 
         <!-- Botón de menú hamburguesa (solo en móvil) -->
-        <button type="button" class="sm:hidden inline-flex items-center justify-center w-10 h-10 text-muted hover:text-signal transition-colors" :aria-label="menuAbierto ? 'Cerrar menú' : 'Abrir menú'" @click="menuAbierto = !menuAbierto">
-          <X v-if="menuAbierto" :size="19" :stroke-width="1.8" aria-hidden="true" />
-          <Menu v-else :size="19" :stroke-width="1.8" aria-hidden="true" />
-        </button>
+        <div class="flex items-center gap-2">
+          <SelectorIdioma />
+          <button type="button" class="sm:hidden inline-flex items-center justify-center w-10 h-10 text-muted hover:text-signal transition-colors" :aria-label="menuAbierto ? t('nav.close') : t('nav.open')" @click="menuAbierto = !menuAbierto">
+            <X v-if="menuAbierto" :size="19" :stroke-width="1.8" aria-hidden="true" />
+            <Menu v-else :size="19" :stroke-width="1.8" aria-hidden="true" />
+          </button>
+        </div>
       </nav>
 
       <!-- Menú desplegable móvil -->
@@ -84,7 +89,7 @@ function irASeccion(id) {
           :class="idActivo === seccion.id ? 'text-signal bg-signal/10' : 'text-muted'"
           @click="irASeccion(seccion.id)"
         >
-          {{ seccion.etiqueta }}
+          {{ t(`nav.${seccion.etiqueta}`) }}
         </button>
       </div>
     </div>
