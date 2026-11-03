@@ -320,7 +320,9 @@ export function t(clave, variables = {}) {
 
 export function proyectoLocalizado(proyecto) {
   const traduccion = traducciones[idioma.value].projects[proyecto.id]
-  return traduccion ? { ...proyecto, ...traduccion } : proyecto
+  return traduccion
+    ? { ...proyecto, titulo: traduccion.title, descripcion: traduccion.description }
+    : proyecto
 }
 
 export function tecnologiaLocalizada(tecnologia) {
