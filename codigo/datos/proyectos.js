@@ -9,53 +9,20 @@
  * @property {string} titulo - Nombre del proyecto en español.
  * @property {string} descripcion - Descripción del proyecto en español.
  * @property {string[]} tecnologias - Tecnologías usadas en el proyecto.
- * @property {{ clave: string, tecnologias: string[] }[]} [stackTecnico] - Stack agrupado para el detalle.
  * @property {'academico'|'cliente'|'personal'} tipo - Categoría del proyecto.
  * @property {string} urlDemo - Enlace público a la demo o cadena vacía si no existe.
  * @property {string[]} imagenes - Imágenes del proyecto; la primera es la portada.
  * @property {{ titulo: string, url: string }[]} documentos - Documentos de referencia.
  * -----------------------------------------------------------------------
  */
-const stackCancha = [
-  {
-    clave: 'frontend',
-    tecnologias: ['Vue 3', 'TypeScript', 'Ionic', 'Capacitor', 'Pinia', 'Tailwind CSS']
-  },
-  {
-    clave: 'backend',
-    tecnologias: ['PHP', 'Laravel']
-  },
-  {
-    clave: 'realtime',
-    tecnologias: ['Laravel Reverb', 'Laravel Echo']
-  },
-  {
-    clave: 'mapsStorage',
-    tecnologias: ['Leaflet', 'QRCode', 'AWS S3']
-  },
-  {
-    clave: 'security',
-    tecnologias: ['Google2FA', 'Spatie Activitylog']
-  },
-  {
-    clave: 'databases',
-    tecnologias: ['SQLite', 'MySQL/MariaDB', 'PostgreSQL']
-  },
-  {
-    clave: 'quality',
-    tecnologias: ['PHPUnit', 'Vitest', 'Cypress']
-  }
-]
-
 /** @type {Proyecto[]} */
 export const proyectos = [
   {
     id: 'p1',
-    titulo: 'Cancha Platform — Plataforma de Reserva de Canchas',
+    titulo: 'SPORTRA — Plataforma de Reserva de Canchas',
     descripcion:
-      'Plataforma web y móvil para descubrir complejos deportivos, consultar horarios y solicitar reservas. Los complejos gestionan canchas, disponibilidad y solicitudes desde el mismo sistema, con mapas y actualizaciones en tiempo real.',
-    stackTecnico: stackCancha,
-    tecnologias: stackCancha.flatMap((grupo) => grupo.tecnologias),
+      'SPORTRA es una plataforma digital que conecta a deportistas con complejos deportivos para facilitar el descubrimiento y la reserva de canchas. Reúne en un solo espacio la búsqueda de instalaciones, la consulta de disponibilidad y la gestión de solicitudes, mientras brinda a los complejos herramientas para administrar sus espacios y horarios. Su enfoque web y móvil simplifica la coordinación entre quienes buscan un espacio para practicar deporte y quienes lo ofrecen.',
+    tecnologias: ['Vue 3', 'TypeScript', 'Ionic', 'Laravel', 'PHP', 'SQLite/MySQL', 'Laravel Reverb'],
     tipo: 'personal',
     urlDemo: '',
     imagenes: [

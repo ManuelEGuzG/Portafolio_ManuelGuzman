@@ -43,16 +43,6 @@ const traducciones = {
     },
     detail: {
       description: 'Descripción',
-      stack: 'Stack técnico',
-      stackGroups: {
-        frontend: 'Frontend web y móvil',
-        backend: 'Backend y API',
-        realtime: 'Tiempo real',
-        mapsStorage: 'Mapas y almacenamiento',
-        security: 'Seguridad y administración',
-        databases: 'Bases de datos compatibles',
-        quality: 'Pruebas y calidad'
-      },
       demo: 'Demostración',
       viewDemo: 'Ver demo',
       noDemo: 'Demo no disponible públicamente.',
@@ -97,8 +87,8 @@ const traducciones = {
       client: 'Real client',
       personal: 'Personal',
       p1: {
-        title: 'Cancha Platform — Sports Court Booking Platform',
-        description: 'A web and mobile platform for finding sports venues, checking schedules, and requesting court bookings. Venue teams manage courts, availability, and requests in one place, with maps and real-time updates.'
+        title: 'SPORTRA — Sports Court Booking Platform',
+        description: 'SPORTRA is a digital platform connecting athletes with sports complexes to simplify court discovery and booking. It brings venue search, availability checks, and booking requests together, while giving complexes tools to manage their facilities and schedules. Its web and mobile experience streamlines coordination between people looking for a place to play and the venues that provide it.'
       },
       p2: {
         title: 'E-commerce Application for a Clothing Store',
@@ -145,16 +135,6 @@ const traducciones = {
     },
     detail: {
       description: 'Description',
-      stack: 'Technology stack',
-      stackGroups: {
-        frontend: 'Web and mobile frontend',
-        backend: 'Backend and API',
-        realtime: 'Real time',
-        mapsStorage: 'Maps and storage',
-        security: 'Security and administration',
-        databases: 'Supported databases',
-        quality: 'Testing and quality'
-      },
       demo: 'Demo',
       viewDemo: 'View demo',
       noDemo: 'No public demo available.',
@@ -199,8 +179,8 @@ const traducciones = {
       client: 'Client réel',
       personal: 'Personnel',
       p1: {
-        title: 'Cancha Platform — Plateforme de réservation de terrains',
-        description: 'Plateforme web et mobile pour découvrir des complexes sportifs, consulter les horaires et demander une réservation. Les complexes gèrent leurs terrains, disponibilités et demandes au même endroit, avec des cartes et des mises à jour en temps réel.'
+        title: 'SPORTRA — Plateforme de réservation de terrains',
+        description: 'SPORTRA est une plateforme numérique qui met en relation les sportifs et les complexes sportifs afin de faciliter la découverte et la réservation de terrains. Elle réunit la recherche d’installations, la consultation des disponibilités et la gestion des demandes, tout en offrant aux complexes des outils pour gérer leurs espaces et leurs horaires. Son expérience web et mobile simplifie la coordination entre les personnes à la recherche d’un lieu pour pratiquer un sport et les établissements qui le proposent.'
       },
       p2: {
         title: 'Application e-commerce pour un magasin de vêtements',
@@ -247,16 +227,6 @@ const traducciones = {
     },
     detail: {
       description: 'Description',
-      stack: 'Stack technique',
-      stackGroups: {
-        frontend: 'Frontend web et mobile',
-        backend: 'Backend et API',
-        realtime: 'Temps réel',
-        mapsStorage: 'Cartes et stockage',
-        security: 'Sécurité et administration',
-        databases: 'Bases de données compatibles',
-        quality: 'Tests et qualité'
-      },
       demo: 'Démonstration',
       viewDemo: 'Voir la démo',
       noDemo: 'Aucune démo publique disponible.',
