@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 const traducciones = {
   es: {
     section: 'Sec.',
-    nav: { home: 'Inicio', projects: 'Proyectos', profile: 'Perfil', contact: 'Contacto', open: 'Abrir menú', close: 'Cerrar menú' },
+    nav: { home: 'Inicio', projects: 'Proyectos', profile: 'Perfil TI', generalProfile: 'Perfil general', contact: 'Contacto', open: 'Abrir menú', close: 'Cerrar menú' },
     back: 'Volver al portafolio',
     hero: {
       label: 'Plano / Perfil Técnico',
@@ -60,6 +60,21 @@ const traducciones = {
         'Curso de Servicio al Cliente'
       ]
     },
+    generalProfile: {
+      label: 'Más allá de TI',
+      title: 'Perfil general',
+      intro: 'Además de mi formación en tecnología, he desarrollado conocimientos e intereses prácticos en distintas áreas. Este espacio reúne esas habilidades y licencias.',
+      knowledgeTitle: 'Conocimientos e intereses',
+      knowledge: [
+        { title: 'Música', description: 'Conocimientos y práctica musical.' },
+        { title: 'Instalaciones eléctricas', description: 'Conocimientos generales de instalación eléctrica.' },
+        { title: 'Construcción', description: 'Conocimientos de obra gris y procesos básicos de construcción.' },
+        { title: 'Dibujo y diseño', description: 'Conocimientos de dibujo y diseño.' }
+      ],
+      licensesTitle: 'Licencias de conducir',
+      carLicense: 'Automóvil',
+      motorcycleLicense: 'Motocicleta'
+    },
     contact: {
       title: 'Construyamos<br> algo juntos.',
       description: 'Estoy buscando mi primera oportunidad como desarrollador. Si mi perfil encaja con tu equipo, escríbeme — respondo rápido.'
@@ -90,7 +105,7 @@ const traducciones = {
   },
   en: {
     section: 'Sec.',
-    nav: { home: 'Home', projects: 'Projects', profile: 'Profile', contact: 'Contact', open: 'Open menu', close: 'Close menu' },
+    nav: { home: 'Home', projects: 'Projects', profile: 'IT profile', generalProfile: 'General profile', contact: 'Contact', open: 'Open menu', close: 'Close menu' },
     back: 'Back to portfolio',
     hero: {
       label: 'Blueprint / Technical Profile',
@@ -175,6 +190,21 @@ const traducciones = {
         'Customer Service Course'
       ]
     },
+    generalProfile: {
+      label: 'Beyond IT',
+      title: 'General profile',
+      intro: 'Alongside my technology education, I have developed practical knowledge and interests in several other areas. This page brings together those skills and licenses.',
+      knowledgeTitle: 'Knowledge and interests',
+      knowledge: [
+        { title: 'Music', description: 'Knowledge and practice of music.' },
+        { title: 'Electrical installations', description: 'General knowledge of electrical installation.' },
+        { title: 'Construction', description: 'Knowledge of masonry and basic construction processes.' },
+        { title: 'Drawing and design', description: 'Knowledge of drawing and design.' }
+      ],
+      licensesTitle: 'Driving licenses',
+      carLicense: 'Car',
+      motorcycleLicense: 'Motorcycle'
+    },
     contact: {
       title: 'Let’s build<br> something together.',
       description: 'I’m looking for my first opportunity as a developer. If my profile could be a good fit for your team, send me a message — I reply quickly.'
@@ -205,7 +235,7 @@ const traducciones = {
   },
   fr: {
     section: 'Section',
-    nav: { home: 'Accueil', projects: 'Projets', profile: 'Profil', contact: 'Contact', open: 'Ouvrir le menu', close: 'Fermer le menu' },
+    nav: { home: 'Accueil', projects: 'Projets', profile: 'Profil TI', generalProfile: 'Profil général', contact: 'Contact', open: 'Ouvrir le menu', close: 'Fermer le menu' },
     back: 'Retour au portfolio',
     hero: {
       label: 'Plan / Profil technique',
@@ -289,6 +319,21 @@ const traducciones = {
         'Cours de sensibilisation à la sécurité numérique',
         'Cours de service à la clientèle'
       ]
+    },
+    generalProfile: {
+      label: 'Au-delà de l’informatique',
+      title: 'Profil général',
+      intro: 'En complément de ma formation en technologie, j’ai développé des connaissances pratiques et des intérêts dans plusieurs autres domaines. Cette page rassemble ces compétences et mes permis.',
+      knowledgeTitle: 'Connaissances et intérêts',
+      knowledge: [
+        { title: 'Musique', description: 'Connaissances et pratique musicale.' },
+        { title: 'Installations électriques', description: 'Connaissances générales en installation électrique.' },
+        { title: 'Construction', description: 'Connaissances en gros œuvre et en travaux de construction de base.' },
+        { title: 'Dessin et conception', description: 'Connaissances en dessin et en conception.' }
+      ],
+      licensesTitle: 'Permis de conduire',
+      carLicense: 'Automobile',
+      motorcycleLicense: 'Moto'
     },
     contact: {
       title: 'Construisons<br> quelque chose ensemble.',

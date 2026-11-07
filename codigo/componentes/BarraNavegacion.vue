@@ -13,6 +13,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Menu, X } from '@lucide/vue'
+import { RouterLink, useRoute } from 'vue-router'
 import { usarScrollSpy } from '@/composables/usarScrollSpy.js'
 import { t } from '@/composables/usarIdioma.js'
 import SelectorIdioma from './SelectorIdioma.vue'
@@ -28,6 +29,7 @@ const secciones = [
 
 // idActivo se actualiza solo mientras el usuario hace scroll (ver composable).
 const { idActivo } = usarScrollSpy(secciones.map((s) => s.id))
+const ruta = useRoute()
 
 // Controla si el menú móvil (hamburguesa) está abierto o cerrado.
 const menuAbierto = ref(false)
@@ -67,6 +69,19 @@ function irASeccion(id) {
               {{ t(`nav.${seccion.etiqueta}`) }}
             </button>
           </li>
+          <li>
+            <RouterLink
+              to="/perfil-general"
+              class="relative block px-4 py-2 font-mono text-xs tracking-wide rounded-full transition-colors duration-300"
+              :class="ruta.path === '/perfil-general' ? 'text-ink' : 'text-muted hover:text-paper'"
+            >
+              <span
+                v-if="ruta.path === '/perfil-general'"
+                class="absolute inset-0 rounded-full bg-signal -z-10"
+              />
+              {{ t('nav.generalProfile') }}
+            </RouterLink>
+          </li>
         </ul>
 
         <!-- Botón de menú hamburguesa (solo en móvil) -->
@@ -91,6 +106,14 @@ function irASeccion(id) {
         >
           {{ t(`nav.${seccion.etiqueta}`) }}
         </button>
+        <RouterLink
+          to="/perfil-general"
+          class="text-left px-4 py-2.5 font-mono text-xs rounded-lg"
+          :class="ruta.path === '/perfil-general' ? 'text-signal bg-signal/10' : 'text-muted'"
+          @click="menuAbierto = false"
+        >
+          {{ t('nav.generalProfile') }}
+        </RouterLink>
       </div>
     </div>
   </header>

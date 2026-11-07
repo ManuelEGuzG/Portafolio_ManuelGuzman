@@ -1,0 +1,116 @@
+<script setup>
+import { computed } from 'vue'
+import BarraSimple from '@/componentes/BarraSimple.vue'
+import { t } from '@/composables/usarIdioma.js'
+
+const conocimientos = computed(() => [0, 1, 2, 3].map((indice) => ({
+  titulo: t(`generalProfile.knowledge.${indice}.title`),
+  descripcion: t(`generalProfile.knowledge.${indice}.description`)
+})))
+</script>
+
+<template>
+  <div class="perfil-general min-h-screen">
+    <BarraSimple />
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 pt-32 pb-20">
+      <header v-revelar class="max-w-3xl">
+        <p class="blueprint-tag">{{ t('generalProfile.label') }}</p>
+        <h1 class="font-display font-semibold text-3xl sm:text-5xl mt-4 leading-tight text-paper">
+          {{ t('generalProfile.title') }}
+        </h1>
+        <p class="text-muted mt-5 text-base sm:text-lg leading-relaxed">
+          {{ t('generalProfile.intro') }}
+        </p>
+      </header>
+
+      <section v-revelar class="mt-12">
+        <p class="blueprint-tag">{{ t('generalProfile.knowledgeTitle') }}</p>
+        <div class="grid sm:grid-cols-2 gap-4 mt-5">
+          <article
+            v-for="(item, indice) in conocimientos"
+            :key="item.titulo"
+            v-revelar="{ delay: indice * 80 }"
+            class="panel p-5 sm:p-6"
+          >
+            <h2 class="font-mono text-sm text-signal">{{ item.titulo }}</h2>
+            <p class="text-muted text-sm leading-relaxed mt-3">{{ item.descripcion }}</p>
+          </article>
+        </div>
+      </section>
+
+      <section v-revelar class="panel p-5 sm:p-6 mt-8">
+        <p class="blueprint-tag">{{ t('generalProfile.licensesTitle') }}</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="tag">{{ t('generalProfile.carLicense') }}</span>
+          <span class="tag">{{ t('generalProfile.motorcycleLicense') }}</span>
+        </div>
+      </section>
+    </main>
+  </div>
+</template>
+
+<style scoped>
+.perfil-general {
+  --perfil-fondo: #f5f0e7;
+  --perfil-panel: #fffdf8;
+  --perfil-borde: #ded4c5;
+  --perfil-texto: #292332;
+  --perfil-secundario: #706a78;
+  --perfil-acento: #a44936;
+  min-height: 100vh;
+  color: var(--perfil-texto);
+  background:
+    radial-gradient(ellipse at 85% 12%, rgba(164, 73, 54, 0.09), transparent 34rem),
+    var(--perfil-fondo);
+}
+
+.perfil-general :deep(.panel) {
+  background: var(--perfil-panel);
+  border-color: var(--perfil-borde);
+  box-shadow: 0 16px 38px -30px rgba(48, 37, 39, 0.35);
+}
+
+.perfil-general :deep(.tag) {
+  color: var(--perfil-secundario);
+  background: #f3ece1;
+  border-color: var(--perfil-borde);
+}
+
+.perfil-general :deep(.blueprint-tag),
+.perfil-general :deep(.text-signal) {
+  color: var(--perfil-acento);
+}
+
+.perfil-general :deep(.text-paper) {
+  color: var(--perfil-texto);
+}
+
+.perfil-general :deep(.text-muted) {
+  color: var(--perfil-secundario);
+}
+
+.perfil-general :deep(.border-line) {
+  border-color: var(--perfil-borde);
+}
+
+.perfil-general :deep(.bg-ink\/70),
+.perfil-general :deep([role='group']) {
+  background-color: rgba(255, 253, 248, 0.88);
+}
+
+.perfil-general :deep(header a.font-mono) {
+  color: var(--perfil-acento);
+  border-color: var(--perfil-borde);
+}
+
+.perfil-general :deep(.btn-back),
+.perfil-general :deep(.btn-back:hover) {
+  color: var(--perfil-acento);
+}
+
+.perfil-general :deep([role='group'] button[aria-pressed='true']) {
+  color: #fffdf8;
+  background-color: var(--perfil-acento);
+}
+</style>

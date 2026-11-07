@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import PaginaInicio from '@/paginas/PaginaInicio.vue'
 import PaginaProyecto from '@/paginas/PaginaProyecto.vue'
+import PaginaPerfilGeneral from '@/paginas/PaginaPerfilGeneral.vue'
 import PaginaNoEncontrada from '@/paginas/PaginaNoEncontrada.vue'
 import { iniciarProgreso, detenerProgreso } from '@/composables/usarProgresoRuta.js'
 
@@ -29,6 +30,11 @@ const router = createRouter({
       path: '/',
       name: 'inicio',
       component: PaginaInicio
+    },
+    {
+      path: '/perfil-general',
+      name: 'perfil-general',
+      component: PaginaPerfilGeneral
     },
     {
       // ':id' es un parámetro dinámico. 'props: true' hace que Vue Router
