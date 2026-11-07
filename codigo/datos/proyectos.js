@@ -22,7 +22,7 @@ export const proyectos = [
     titulo: 'SPORTRA — Plataforma de Reserva de Canchas',
     descripcion:
       'SPORTRA es una plataforma digital que conecta a deportistas con complejos deportivos para facilitar el descubrimiento y la reserva de canchas. Reúne en un solo espacio la búsqueda de instalaciones, la consulta de disponibilidad y la gestión de solicitudes, mientras brinda a los complejos herramientas para administrar sus espacios y horarios. Su enfoque web y móvil simplifica la coordinación entre quienes buscan un espacio para practicar deporte y quienes lo ofrecen.',
-    tecnologias: ['Vue 3', 'TypeScript', 'Ionic', 'Laravel', 'PHP', 'SQLite/MySQL', 'Laravel Reverb'],
+    tecnologias: ['Vue.js', 'TypeScript', 'Ionic', 'Laravel', 'PHP', 'SQLite', 'MySQL', 'Laravel Reverb'],
     tipo: 'personal',
     urlDemo: '',
     imagenes: [
@@ -133,7 +133,7 @@ export const proyectos = [
     id: 'p7',
     titulo: 'Cancionero Digital — Iglesia del Norte',
     descripcion:
-      'Aplicación web multimedia desarrollada con Vue 3 para la gestión y presentación del repertorio musical de la Iglesia del Norte.',
+      'Aplicación web multimedia desarrollada con Vue.js para la gestión y presentación del repertorio musical de la Iglesia del Norte.',
     tecnologias: ['Vue.js'],
     tipo: 'academico',
     urlDemo: 'https://manueleguzg.github.io/Norte-Song/',

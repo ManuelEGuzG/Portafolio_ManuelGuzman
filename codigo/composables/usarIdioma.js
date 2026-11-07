@@ -112,7 +112,7 @@ const traducciones = {
       },
       p7: {
         title: 'Digital Songbook — Iglesia del Norte',
-        description: 'A multimedia web application built with Vue 3 to manage and present the musical repertoire of Iglesia del Norte.'
+        description: 'A multimedia web application built with Vue.js to manage and present the musical repertoire of Iglesia del Norte.'
       }
     },
     filters: { title: 'Filter', category: 'Category', technology: 'Technology', clear: 'Clear filters' },
@@ -204,7 +204,7 @@ const traducciones = {
       },
       p7: {
         title: 'Recueil de chants numérique — Iglesia del Norte',
-        description: 'Application web multimédia développée avec Vue 3 pour gérer et présenter le répertoire musical de l’Iglesia del Norte.'
+        description: 'Application web multimédia développée avec Vue.js pour gérer et présenter le répertoire musical de l’Iglesia del Norte.'
       }
     },
     filters: { title: 'Filtrer', category: 'Catégorie', technology: 'Technologie', clear: 'Effacer les filtres' },

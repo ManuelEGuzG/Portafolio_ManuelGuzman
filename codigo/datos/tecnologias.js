@@ -14,13 +14,12 @@ export const gruposTecnicos = [
   },
   {
     indiceEtiqueta: 1,
-    tecnologias: ['MySQL', 'MySQL/MariaDB', 'PostgreSQL', 'SQL Server', 'MongoDB', 'SQLite', 'SQLite/MySQL']
+    tecnologias: ['MySQL', 'MariaDB', 'PostgreSQL', 'SQL Server', 'MongoDB', 'SQLite']
   },
   {
     indiceEtiqueta: 2,
     tecnologias: [
       'Vue.js',
-      'Vue 3',
       'Laravel',
       'Laravel Reverb',
       'Laravel Echo',
