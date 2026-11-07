@@ -45,6 +45,10 @@ const traducciones = {
         {
           title: 'Calidad y validación',
           description: 'Pruebas y revisión del comportamiento para detectar errores y mejorar la confiabilidad.'
+        },
+        {
+          title: 'Modelado y diagramación',
+          description: 'Elaboración de diagramas de clases, dominio y actividades, y uso de UML y D4 para representar sistemas.'
         }
       ],
       education: 'Formación académica',
@@ -156,6 +160,10 @@ const traducciones = {
         {
           title: 'Quality and validation',
           description: 'Testing and reviewing behavior to find issues and improve reliability.'
+        },
+        {
+          title: 'Modeling and diagramming',
+          description: 'Creating class, domain, and activity diagrams, and using UML and D4 to represent systems.'
         }
       ],
       education: 'Education',
@@ -267,6 +275,10 @@ const traducciones = {
         {
           title: 'Qualité et validation',
           description: 'Tests et vérification du comportement pour repérer les erreurs et renforcer la fiabilité.'
+        },
+        {
+          title: 'Modélisation et diagrammes',
+          description: 'Création de diagrammes de classes, de domaine et d’activités, et utilisation d’UML et de D4 pour représenter des systèmes.'
         }
       ],
       education: 'Formation',

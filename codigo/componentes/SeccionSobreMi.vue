@@ -50,7 +50,7 @@ const habilidadesTraducidas = computed(() => gruposTecnicos.map((grupo) => ({
   tecnologias: grupo.tecnologias
 })))
 
-const practicasTraducidas = computed(() => [0, 1, 2, 3].map((indice) => ({
+const practicasTraducidas = computed(() => [0, 1, 2, 3, 4].map((indice) => ({
   titulo: t(`about.practices.${indice}.title`),
   descripcion: t(`about.practices.${indice}.description`)
 })))
