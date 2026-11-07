@@ -12,7 +12,7 @@ import { iniciarProgreso, detenerProgreso } from '@/composables/usarProgresoRuta
  *   '/'               -> PaginaInicio.vue      (todo el portafolio: hero,
  *                                                proyectos, perfil, contacto)
  *   '/proyecto/:id'    -> PaginaProyecto.vue    (detalle de un proyecto:
- *                                                demo, repo, documentos)
+ *                                                demo y documentos)
  *   cualquier otra ruta -> PaginaNoEncontrada.vue (404)
  *
  * 'createWebHistory()' usa URLs limpias (sin '#'), por eso vercel.json

@@ -4,7 +4,7 @@
   Tarjeta individual que representa UN proyecto dentro de la galería.
   Es un <RouterLink> completo: al hacer clic en cualquier parte de la
   tarjeta, navega a la página de detalle del proyecto (/proyecto/:id),
-  donde se muestran la demo, el repositorio y los documentos.
+  donde se muestran la demo y los documentos disponibles.
 
   Incluye:
     - Una cabecera decorativa con el "monograma" del proyecto (sus
@@ -76,12 +76,12 @@ function alMoverMouse(evento) {
     <!-- Portada visual del proyecto, con monograma como fallback -->
     <div class="relative h-40 flex items-center justify-center overflow-hidden blueprint-bg border-b border-line shrink-0">
       <img
-        v-if="proyectoTraducido.imagen"
-        :src="proyectoTraducido.imagen"
+        v-if="proyectoTraducido.imagenes.length"
+        :src="proyectoTraducido.imagenes[0]"
         :alt="t('projects.preview', { title: proyectoTraducido.titulo })"
         class="absolute inset-0 w-full h-full object-cover opacity-75 transition-transform duration-500 group-hover:scale-105"
       />
-      <div v-if="proyectoTraducido.imagen" class="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
+      <div v-if="proyectoTraducido.imagenes.length" class="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
       <span v-else class="font-display text-4xl font-semibold text-signal/25 tracking-wider select-none">
         {{ iniciales }}
       </span>

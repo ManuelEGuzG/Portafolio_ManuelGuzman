@@ -6,7 +6,7 @@ import { RouterLink } from 'vue-router'
 import { proyectos } from '@/datos/proyectos.js'
 import BarraSimple from '@/componentes/BarraSimple.vue'
 import IntercambioTarjetas from '@/componentes/IntercambioTarjetas.vue'
-import { proyectoLocalizado, t } from '@/composables/usarIdioma.js'
+import { proyectoLocalizado, t, tecnologiaLocalizada } from '@/composables/usarIdioma.js'
 
 const props = defineProps({
   id: { type: String, required: true }
@@ -47,13 +47,13 @@ const cerrarModal = () => {
     <template v-if="proyecto">
       <header class="relative overflow-hidden pt-32 pb-14 px-4 sm:px-6">
         <div class="relative max-w-4xl mx-auto" v-revelar>
-          <p class="blueprint-tag">{{ t(`projects.${{ academico: 'academic', cliente: 'client', personal: 'personal' }[proyecto.tipo]}`) }}</p>
+          <p class="blueprint-tag">{{ t(`projects.${{ academico: 'academic', cliente: 'client', personal: 'personal' }[proyectoTraducido.tipo]}`) }}</p>
           <h1 class="font-display font-semibold text-3xl sm:text-5xl mt-4 leading-tight text-paper break-words">
             {{ proyectoTraducido.titulo }}
           </h1>
           <div class="flex flex-wrap gap-2 mt-6">
-            <span v-for="tecnologia in proyecto.tecnologias" :key="tecnologia" class="tag">
-              {{ tecnologia }}
+            <span v-for="tecnologia in proyectoTraducido.tecnologias" :key="tecnologia" class="tag">
+              {{ tecnologiaLocalizada(tecnologia) }}
             </span>
           </div>
         </div>
@@ -66,10 +66,6 @@ const cerrarModal = () => {
             {{ proyectoTraducido.descripcion }}
           </p>
 
-          <div class="flex items-center gap-3 mt-8 font-mono text-xs text-muted">
-            <span class="text-signal">+{{ proyecto.estadisticas.agregadas }}</span>
-            <span class="text-signalWarm">−{{ proyecto.estadisticas.eliminadas }}</span>
-          </div>
         </div>
 
         <aside v-revelar="{ delay: 160 }" class="space-y-6">
@@ -77,8 +73,8 @@ const cerrarModal = () => {
             <p class="blueprint-tag mb-4">{{ t('detail.demo') }}</p>
             <div class="flex flex-col gap-3">
               <a
-                v-if="proyecto.urlDemo"
-                :href="proyecto.urlDemo"
+                v-if="proyectoTraducido.urlDemo"
+                :href="proyectoTraducido.urlDemo"
                 target="_blank"
                 rel="noopener"
                 class="btn-primary justify-center w-full break-words text-center"
@@ -91,10 +87,10 @@ const cerrarModal = () => {
             </div>
           </div>
 
-          <div v-if="proyecto.documentos?.length" class="panel p-5">
+          <div v-if="proyectoTraducido.documentos.length" class="panel p-5">
             <p class="blueprint-tag mb-4">{{ t('detail.documents') }}</p>
             <ul class="space-y-2.5">
-              <li v-for="documento in proyecto.documentos" :key="documento.url">
+              <li v-for="documento in proyectoTraducido.documentos" :key="documento.url">
                 <a
                   :href="documento.url"
                   target="_blank"
@@ -108,8 +104,8 @@ const cerrarModal = () => {
           </div>
         </aside>
 
-        <div v-if="proyecto.imagenes?.length" class="mt-2 py-6 sm:col-span-2">
-          <p class="blueprint-tag mb-6">{{ t('detail.gallery', { count: proyecto.imagenes.length }) }}</p>
+        <div v-if="proyectoTraducido.imagenes.length" class="mt-2 py-6 sm:col-span-2">
+          <p class="blueprint-tag mb-6">{{ t('detail.gallery', { count: proyectoTraducido.imagenes.length }) }}</p>
 
           <IntercambioTarjetas
             :width="900"
@@ -118,10 +114,10 @@ const cerrarModal = () => {
             :delay="4000"
             easing="elastic"
             :pause-on-hover="true"
-            @click-card="(idx) => abrirModal(proyecto.imagenes[idx])"
+            @click-card="(idx) => abrirModal(proyectoTraducido.imagenes[idx])"
           >
             <div
-              v-for="(img, idx) in proyecto.imagenes"
+              v-for="(img, idx) in proyectoTraducido.imagenes"
               :key="idx"
               class="w-full h-full relative group"
             >

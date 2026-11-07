@@ -21,35 +21,7 @@ const traducciones = {
       preview: 'Vista previa de {title}',
       academic: 'Académico',
       client: 'Cliente real',
-      personal: 'Personal',
-      p1: {
-        title: 'Sportra — Plataforma de Reserva de Canchas',
-        description: 'Plataforma web para descubrir complejos deportivos y solicitar reservas de canchas. Permite buscar por ubicación, consultar disponibilidad y administrar horarios, reservas y bloqueos desde un panel para propietarios. Incluye herramientas administrativas para gestionar complejos, usuarios, verificaciones y reportes, además de actualización en tiempo real de la disponibilidad.'
-      },
-      p2: {
-        title: 'Aplicación E-commerce para Tienda de Ropa',
-        description: 'Aplicación orientada a la gestión de ventas y operaciones comerciales, con desarrollo de componentes frontend y backend. Modelado y gestión de información mediante PostgreSQL, integración de servicios vía Web API, y configuración de base de datos en entorno virtualizado con esquema de conexión remota entre distintas terminales.'
-      },
-      p3: {
-        title: 'Implementación de Sistema de Telefonía IP (VoIP)',
-        description: 'Configuración de un entorno de telefonía IP en máquinas virtuales. Implementación de servidor de llamadas y gestión de parámetros mediante Webmin, integración de clientes para simulación de llamadas entre entornos virtualizados, y aplicación práctica de conceptos de infraestructura, servicios y comunicación en red.'
-      },
-      p4: {
-        title: 'NexusStore — Sistema de Gestión para Pequeños Comercios',
-        description: 'Aplicación web para gestión de inventario y ventas de pequeños comercios, con módulos de inventario, ventas, dashboard y reportes. Backend en Laravel bajo arquitectura de controladores, servicios y modelos, integrado con el frontend mediante API. Implementación de autenticación, control de acceso y aislamiento de información entre comercios, usando Git y Docker durante el desarrollo.'
-      },
-      p5: {
-        title: 'BovWeight CR — Sistema de Estimación de Peso de Bovinos',
-        description: 'Sistema para estimar el peso de bovinos a partir de imágenes, con backend en Laravel integrado al frontend en Vue.js mediante API. Incorpora un módulo en Python para el procesamiento/estimación con IA y una app en Android Studio para captura en campo. Uso de Docker y Git durante el desarrollo y mantenimiento del proyecto.'
-      },
-      p6: {
-        title: 'Guía Turística Multimedia de Costa Rica',
-        description: 'Aplicación web interactiva que permite explorar destinos turísticos de Costa Rica a través de imágenes, audio, video y datos estructurados. Desarrollada íntegramente con tecnologías nativas del navegador: HTML5, CSS3, JavaScript ES6+ y la API de Web Components.'
-      },
-      p7: {
-        title: 'Cancionero Digital — Iglesia del Norte',
-        description: 'Aplicación web multimedia desarrollada con Vue 3 para la gestión y presentación del repertorio musical de la Iglesia del Norte.'
-      }
+      personal: 'Personal'
     },
     filters: { title: 'Filtrar', category: 'Categoría', technology: 'Tecnología', clear: 'Limpiar filtros' },
     about: {

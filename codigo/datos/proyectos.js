@@ -5,60 +5,52 @@
  *
  * Estructura de cada proyecto:
  * @typedef {Object} Proyecto
- * @property {string} id              - Identificador único y URL-friendly (ej: 'p1').
- * @property {string} titulo          - Nombre del proyecto
- * @property {string} descripcion     - Descripción del proyecto
- * @property {string[]} tecnologias   - Lista de tecnologías usadas
- * @property {'academico'|'cliente'|'personal'} tipo - Categoría del proyecto
- * @property {string} urlDemo         - Link a una demo en vivo (deja '' si no aplica)
- * @property {string[]} imagenes      - Array con rutas a imágenes del proyecto (hasta 30)
- * @property {{ titulo: string, url: string }[]} documentos - Documentos de referencia
- * @property {{ agregadas: number, eliminadas: number }} estadisticas - Números decorativos
+ * @property {string} id - Identificador único y URL-friendly.
+ * @property {string} titulo - Nombre del proyecto en español.
+ * @property {string} descripcion - Descripción del proyecto en español.
+ * @property {string[]} tecnologias - Tecnologías usadas en el proyecto.
+ * @property {'academico'|'cliente'|'personal'} tipo - Categoría del proyecto.
+ * @property {string} urlDemo - Enlace público a la demo o cadena vacía si no existe.
+ * @property {string[]} imagenes - Imágenes del proyecto; la primera es la portada.
+ * @property {{ titulo: string, url: string }[]} documentos - Documentos de referencia.
  * -----------------------------------------------------------------------
  */
+/** @type {Proyecto[]} */
 export const proyectos = [
   {
-  id: 'p1',
-  imagen: '/Imagenes/p1/1.png',
-  titulo: 'Sportra — Plataforma de Reserva de Canchas',
-  descripcion:
-    'Plataforma web para descubrir complejos deportivos y solicitar reservas de canchas. Permite buscar por ubicación, consultar disponibilidad y administrar horarios, reservas y bloqueos desde un panel para propietarios. Incluye herramientas administrativas para gestionar complejos, usuarios, verificaciones y reportes, además de actualización en tiempo real de la disponibilidad.',
-  tecnologias: ['Vue 3', 'TypeScript', 'Ionic', 'Laravel', 'PHP', 'SQLite/MySQL', 'Laravel Reverb'],
-  tipo: 'personal',
-  urlDemo: '',
-  imagenes: [
-    '/Imagenes/p1/1.png',
-    '/Imagenes/p1/2.png',
-    '/Imagenes/p1/3.png',
-    '/Imagenes/p1/4.png',
-    '/Imagenes/p1/5.png',
-    '/Imagenes/p1/6.png'
-
-
-  ],
-  documentos: [],
-  estadisticas: { agregadas: 0, eliminadas: 0 }
-},
+    id: 'p1',
+    titulo: 'Sportra — Plataforma de Reserva de Canchas',
+    descripcion:
+      'Plataforma web para descubrir complejos deportivos y solicitar reservas de canchas. Permite buscar por ubicación, consultar disponibilidad y administrar horarios, reservas y bloqueos desde un panel para propietarios. Incluye herramientas administrativas para gestionar complejos, usuarios, verificaciones y reportes, además de actualización en tiempo real de la disponibilidad.',
+    tecnologias: ['Vue 3', 'TypeScript', 'Ionic', 'Laravel', 'PHP', 'SQLite/MySQL', 'Laravel Reverb'],
+    tipo: 'personal',
+    urlDemo: '',
+    imagenes: [
+      '/Imagenes/p1/1.png',
+      '/Imagenes/p1/2.png',
+      '/Imagenes/p1/3.png',
+      '/Imagenes/p1/4.png',
+      '/Imagenes/p1/5.png',
+      '/Imagenes/p1/6.png'
+    ],
+    documentos: []
+  },
   {
     id: 'p2',
-    imagen: '/Imagenes/p2/1.png',
     titulo: 'Aplicación E-commerce para Tienda de Ropa',
     descripcion:
       'Aplicación orientada a la gestión de ventas y operaciones comerciales, con desarrollo de componentes frontend y backend. Modelado y gestión de información mediante PostgreSQL, integración de servicios vía Web API, y configuración de base de datos en entorno virtualizado con esquema de conexión remota entre distintas terminales.',
-    tecnologias: ['ASP.NET Core', 'PostgreSQL', 'Web API','C#' ],
+    tecnologias: ['ASP.NET Core', 'PostgreSQL', 'Web API', 'C#'],
     tipo: 'academico',
     urlDemo: '',
     imagenes: [
       '/Imagenes/p2/1.png',
       '/Imagenes/p2/2.png'
-
     ],
-    documentos: [],
-    estadisticas: { agregadas: 1150, eliminadas: 200 }
+    documentos: []
   },
   {
     id: 'p3',
-    imagen: '/Imagenes/p3/1.png',
     titulo: 'Implementación de Sistema de Telefonía IP (VoIP)',
     descripcion:
       'Configuración de un entorno de telefonía IP en máquinas virtuales. Implementación de servidor de llamadas y gestión de parámetros mediante Webmin, integración de clientes para simulación de llamadas entre entornos virtualizados, y aplicación práctica de conceptos de infraestructura, servicios y comunicación en red.',
@@ -67,14 +59,11 @@ export const proyectos = [
     urlDemo: '',
     imagenes: [
       '/Imagenes/p3/1.png'
-
     ],
-    documentos: [],
-    estadisticas: { agregadas: 540, eliminadas: 60 }
+    documentos: []
   },
   {
     id: 'p4',
-    imagen: '/Imagenes/NexusStore.png',
     titulo: 'NexusStore — Sistema de Gestión para Pequeños Comercios',
     descripcion:
       'Aplicación web para gestión de inventario y ventas de pequeños comercios, con módulos de inventario, ventas, dashboard y reportes. Backend en Laravel bajo arquitectura de controladores, servicios y modelos, integrado con el frontend mediante API. Implementación de autenticación, control de acceso y aislamiento de información entre comercios, usando Git y Docker durante el desarrollo.',
@@ -87,14 +76,15 @@ export const proyectos = [
       '/Imagenes/p4/2.png',
       '/Imagenes/p4/3.png',
       '/Imagenes/p4/4.png',
-      '/Imagenes/p4/5.png'
+      '/Imagenes/p4/5.png',
+      '/Imagenes/p4/6.png',
+      '/Imagenes/p4/7.png',
+      '/Imagenes/p4/8.png'
     ],
-    documentos: [],
-    estadisticas: { agregadas: 1780, eliminadas: 310 }
+    documentos: []
   },
   {
     id: 'p5',
-    imagen: '/Imagenes/Bovweight.png',
     titulo: 'BovWeight CR — Sistema de Estimación de Peso de Bovinos',
     descripcion:
       'Sistema para estimar el peso de bovinos a partir de imágenes, con backend en Laravel integrado al frontend en Vue.js mediante API. Incorpora un módulo en Python para el procesamiento/estimación con IA y una app en Android Studio para captura en campo. Uso de Docker y Git durante el desarrollo y mantenimiento del proyecto.',
@@ -117,12 +107,10 @@ export const proyectos = [
       '/Imagenes/p5/12.png',
       '/Imagenes/p5/13.png'
     ],
-    documentos: [],
-    estadisticas: { agregadas: 1620, eliminadas: 280 }
+    documentos: []
   },
   {
     id: 'p6',
-    imagen: '/Imagenes/Guia.png',
     titulo: 'Guía Turística Multimedia de Costa Rica',
     descripcion:
       'Aplicación web interactiva que permite explorar destinos turísticos de Costa Rica a través de imágenes, audio, video y datos estructurados. Desarrollada íntegramente con tecnologías nativas del navegador: HTML5, CSS3, JavaScript ES6+ y la API de Web Components.',
@@ -139,12 +127,10 @@ export const proyectos = [
       '/Imagenes/p6/6.png'
 
     ],
-    documentos: [],
-    estadisticas: { agregadas: 1620, eliminadas: 280 }
+    documentos: []
   },
   {
     id: 'p7',
-    imagen: '/Imagenes/NorteSong.png',
     titulo: 'Cancionero Digital — Iglesia del Norte',
     descripcion:
       'Aplicación web multimedia desarrollada con Vue 3 para la gestión y presentación del repertorio musical de la Iglesia del Norte.',
@@ -159,8 +145,7 @@ export const proyectos = [
       '/Imagenes/p7/4.png',
       '/Imagenes/p7/5.png'
     ],
-    documentos: [],
-    estadisticas: { agregadas: 1620, eliminadas: 280 }
+    documentos: []
   }
 ]
 
