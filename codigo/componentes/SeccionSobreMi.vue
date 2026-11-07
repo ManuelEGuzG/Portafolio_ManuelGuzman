@@ -4,22 +4,14 @@
   Sección de perfil: resumen, habilidades técnicas agrupadas por
   categoría, y línea de tiempo de formación académica.
 
-  Para editar tus habilidades o estudios, modifica los objetos
-  'habilidades' y 'formacionAcademica' de aquí abajo.
+  Las tecnologías se mantienen en datos/tecnologias.js; la formación
+  académica se define en este componente.
   -----------------------------------------------------------------------
 -->
 <script setup>
 import { computed } from 'vue'
-import { t } from '@/composables/usarIdioma.js'
-
-// Habilidades agrupadas por categoría. La clave del objeto (ej. "Lenguajes")
-// es el título de cada tarjeta, y el array son los tags que se muestran dentro.
-const habilidades = {
-  Lenguajes: ['PHP', 'JavaScript', 'Python', 'Java', 'C#', 'HTML5', 'CSS3'],
-  'Bases de datos': ['MySQL', 'PostgreSQL', 'SQL Server', 'MongoDB'],
-  'Frameworks / APIs': ['Vue.js', 'Laravel', 'ASP.NET', 'APIs REST'],
-  Herramientas: ['Git', 'Docker', 'Postman', 'Linux', 'Windows', 'Power BI', 'Microsoft Office']
-}
+import { gruposTecnicos } from '@/datos/tecnologias.js'
+import { t, tecnologiaLocalizada } from '@/composables/usarIdioma.js'
 
 // Formación académica, en el orden en que se muestra (más reciente primero).
 // 'actual: true' marca el punto de la línea de tiempo en color de acento
@@ -53,9 +45,10 @@ const formacionAcademica = [
   }
 ]
 
-const habilidadesTraducidas = computed(() => Object.fromEntries(
-  Object.entries(habilidades).map(([categoria, tags], indice) => [t(`about.skills.${indice}`), tags])
-))
+const habilidadesTraducidas = computed(() => gruposTecnicos.map((grupo) => ({
+  categoria: t(`about.skills.${grupo.indiceEtiqueta}`),
+  tecnologias: grupo.tecnologias
+})))
 
 const formacionTraducida = computed(() => formacionAcademica.map((estudio, indice) => ({
   ...estudio,
@@ -76,14 +69,16 @@ const formacionTraducida = computed(() => formacionAcademica.map((estudio, indic
     <!-- Tarjetas de habilidades por categoría -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-9">
       <div
-        v-for="(tags, categoria) in habilidadesTraducidas"
-        :key="categoria"
-        v-revelar="{ delay: Object.keys(habilidades).indexOf(categoria) * 100 }"
+        v-for="(grupo, indice) in habilidadesTraducidas"
+        :key="grupo.categoria"
+        v-revelar="{ delay: indice * 100 }"
         class="panel p-5"
       >
-        <p class="font-mono text-sm text-signal mb-4">{{ categoria }}</p>
+        <p class="font-mono text-sm text-signal mb-4">{{ grupo.categoria }}</p>
         <div class="flex flex-wrap gap-1.5">
-          <span v-for="tag in tags" :key="tag" class="tag">{{ tag }}</span>
+          <span v-for="tecnologia in grupo.tecnologias" :key="tecnologia" class="tag">
+            {{ tecnologiaLocalizada(tecnologia) }}
+          </span>
         </div>
       </div>
     </div>

@@ -54,7 +54,7 @@ export const proyectos = [
     titulo: 'Implementación de Sistema de Telefonía IP (VoIP)',
     descripcion:
       'Configuración de un entorno de telefonía IP en máquinas virtuales. Implementación de servidor de llamadas y gestión de parámetros mediante Webmin, integración de clientes para simulación de llamadas entre entornos virtualizados, y aplicación práctica de conceptos de infraestructura, servicios y comunicación en red.',
-    tecnologias: ['VoIP', 'Webmin', 'Máquinas Virtuales'],
+    tecnologias: ['VoIP', 'Webmin', 'Máquinas virtuales'],
     tipo: 'academico',
     urlDemo: '',
     imagenes: [

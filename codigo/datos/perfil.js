@@ -34,6 +34,6 @@ export const perfil = {
     { titulo: 'Infraestructura', tecnologias: ['Docker', 'Linux', 'Git'] },
     { titulo: 'Base de Datos', tecnologias: ['MySQL', 'PostgreSQL', 'SQL Server'] },
     { titulo: 'Backend', tecnologias: ['Laravel', 'ASP.NET', 'C#'] },
-    { titulo: 'Frontend', tecnologias: ['Vue.js', 'JavaScript', 'Tailwind'] }
+    { titulo: 'Frontend', tecnologias: ['Vue.js', 'JavaScript', 'Tailwind CSS'] }
   ]
 }

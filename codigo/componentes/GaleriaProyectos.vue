@@ -13,6 +13,7 @@
 <script setup>
 import { ref, computed, nextTick } from 'vue'
 import { proyectos, tiposDeProyecto } from '@/datos/proyectos.js'
+import { gruposTecnicos } from '@/datos/tecnologias.js'
 import { t, tiposDeProyectoLocalizados } from '@/composables/usarIdioma.js'
 import FiltroProyectos from './FiltroProyectos.vue'
 import TarjetaProyecto from './TarjetaProyecto.vue'
@@ -24,14 +25,21 @@ const contenedorResultados = ref(null)
 const tiposTraducidos = tiposDeProyectoLocalizados(tiposDeProyecto)
 
 /**
- * Lista de tecnologías únicas, calculada automáticamente a partir de
- * los proyectos existentes (no hay que mantenerla a mano). Si agregas
- * un proyecto nuevo con una tecnología nueva en datos/proyectos.js,
- * el botón de filtro aparece solo.
+ * Las tecnologías disponibles salen de los proyectos y se ordenan con
+ * los mismos grupos del perfil técnico.
  */
-const tecnologiasDisponibles = computed(() => {
-  const conjunto = new Set(proyectos.flatMap((p) => p.tecnologias))
-  return [...conjunto].sort()
+const gruposDeTecnologias = computed(() => {
+  const disponibles = [...new Set(proyectos.flatMap((proyecto) => proyecto.tecnologias))]
+  const normalizar = (tecnologia) => tecnologia.toLocaleLowerCase()
+
+  return gruposTecnicos
+    .map((grupo) => ({
+      ...grupo,
+      tecnologias: disponibles
+        .filter((tecnologia) => grupo.tecnologias.some((item) => normalizar(item) === normalizar(tecnologia)))
+        .sort((a, b) => a.localeCompare(b, 'es'))
+    }))
+    .filter((grupo) => grupo.tecnologias.length)
 })
 
 /**
@@ -99,7 +107,7 @@ function reiniciarFiltros() {
       <!-- Panel de filtros -->
       <div v-revelar="{ delay: 100 }">
         <FiltroProyectos
-          :tecnologias="tecnologiasDisponibles"
+          :grupos-tecnologia="gruposDeTecnologias"
           :tipos="tiposTraducidos"
           :tecnologia-activa="tecnologiaActiva"
           :tipo-activo="tipoActivo"
