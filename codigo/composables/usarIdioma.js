@@ -28,6 +28,25 @@ const traducciones = {
       title: 'Perfil y stack técnico',
       description: 'Estudiante de cuarto año de Informática Empresarial en la Universidad de Costa Rica, con experiencia práctica en proyectos académicos y personales aplicando distintos lenguajes de programación, tecnologías web, gestores de bases de datos, sistemas operativos, herramientas de desarrollo y entornos virtualizados.',
       skills: ['Lenguajes', 'Bases de datos', 'Frameworks / APIs', 'Herramientas'],
+      practicesTitle: 'Metodologías y prácticas de desarrollo',
+      practices: [
+        {
+          title: 'Scrum y trabajo ágil',
+          description: 'Organización del trabajo en iteraciones, priorización de tareas y seguimiento del avance.'
+        },
+        {
+          title: 'Planificación',
+          description: 'Desglose de requerimientos y organización de tareas para avanzar por etapas.'
+        },
+        {
+          title: 'Fundamentos DevOps',
+          description: 'Uso de Docker y familiaridad con prácticas que conectan desarrollo y operaciones.'
+        },
+        {
+          title: 'Calidad y validación',
+          description: 'Pruebas y revisión del comportamiento para detectar errores y mejorar la confiabilidad.'
+        }
+      ],
       education: 'Formación académica',
       studies: [
         'Bachillerato en Informática Empresarial',
@@ -120,6 +139,25 @@ const traducciones = {
       title: 'Profile & tech stack',
       description: 'Fourth-year Business Informatics student at the University of Costa Rica, with hands-on experience in academic and personal projects using programming languages, web technologies, database systems, operating systems, development tools, and virtualized environments.',
       skills: ['Languages', 'Databases', 'Frameworks / APIs', 'Tools'],
+      practicesTitle: 'Development methods and practices',
+      practices: [
+        {
+          title: 'Scrum and Agile',
+          description: 'Organizing work into iterations, prioritizing tasks, and tracking progress.'
+        },
+        {
+          title: 'Planning',
+          description: 'Breaking down requirements and organizing tasks into manageable stages.'
+        },
+        {
+          title: 'DevOps fundamentals',
+          description: 'Using Docker and understanding practices that connect development and operations.'
+        },
+        {
+          title: 'Quality and validation',
+          description: 'Testing and reviewing behavior to find issues and improve reliability.'
+        }
+      ],
       education: 'Education',
       studies: [
         'Bachelor’s degree in Business Informatics',
@@ -212,6 +250,25 @@ const traducciones = {
       title: 'Profil et technologies',
       description: 'Étudiant en quatrième année d’informatique de gestion à l’Université du Costa Rica, avec une expérience pratique acquise dans des projets académiques et personnels utilisant différents langages de programmation, technologies web, systèmes de bases de données, systèmes d’exploitation, outils de développement et environnements virtualisés.',
       skills: ['Langages', 'Bases de données', 'Frameworks / API', 'Outils'],
+      practicesTitle: 'Méthodes et pratiques de développement',
+      practices: [
+        {
+          title: 'Scrum et méthodes agiles',
+          description: 'Organisation du travail en itérations, priorisation des tâches et suivi de l’avancement.'
+        },
+        {
+          title: 'Planification',
+          description: 'Décomposition des besoins et organisation des tâches en étapes réalisables.'
+        },
+        {
+          title: 'Fondamentaux DevOps',
+          description: 'Utilisation de Docker et connaissance des pratiques reliant développement et opérations.'
+        },
+        {
+          title: 'Qualité et validation',
+          description: 'Tests et vérification du comportement pour repérer les erreurs et renforcer la fiabilité.'
+        }
+      ],
       education: 'Formation',
       studies: [
         'Baccalauréat en informatique de gestion',

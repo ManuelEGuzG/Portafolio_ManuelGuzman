@@ -50,6 +50,11 @@ const habilidadesTraducidas = computed(() => gruposTecnicos.map((grupo) => ({
   tecnologias: grupo.tecnologias
 })))
 
+const practicasTraducidas = computed(() => [0, 1, 2, 3].map((indice) => ({
+  titulo: t(`about.practices.${indice}.title`),
+  descripcion: t(`about.practices.${indice}.description`)
+})))
+
 const formacionTraducida = computed(() => formacionAcademica.map((estudio, indice) => ({
   ...estudio,
   titulo: t(`about.studies.${indice}`)
@@ -80,6 +85,21 @@ const formacionTraducida = computed(() => formacionAcademica.map((estudio, indic
             {{ tecnologiaLocalizada(tecnologia) }}
           </span>
         </div>
+      </div>
+    </div>
+
+    <div v-revelar class="mt-12">
+      <p class="blueprint-tag">{{ t('about.practicesTitle') }}</p>
+      <div class="grid sm:grid-cols-2 gap-4 mt-5">
+        <article
+          v-for="(practica, indice) in practicasTraducidas"
+          :key="practica.titulo"
+          v-revelar="{ delay: indice * 80 }"
+          class="panel p-5"
+        >
+          <h3 class="font-mono text-sm text-signal">{{ practica.titulo }}</h3>
+          <p class="text-muted text-sm leading-relaxed mt-2">{{ practica.descripcion }}</p>
+        </article>
       </div>
     </div>
 
