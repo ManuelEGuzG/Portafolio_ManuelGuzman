@@ -19,39 +19,31 @@
 const stackCancha = [
   {
     clave: 'frontend',
-    tecnologias: ['Vue 3', 'TypeScript', 'Ionic', 'Capacitor', 'Vite', 'Vue Router', 'Pinia']
-  },
-  {
-    clave: 'interface',
-    tecnologias: ['Ionicons', 'Tabler Icons', 'Motion', 'Tailwind CSS', 'Tailwind Merge']
-  },
-  {
-    clave: 'features',
-    tecnologias: ['Leaflet', 'QRCode', 'Axios']
+    tecnologias: ['Vue 3', 'TypeScript', 'Ionic', 'Capacitor', 'Pinia', 'Tailwind CSS']
   },
   {
     clave: 'backend',
-    tecnologias: ['PHP 8.3', 'Laravel 13', 'Laravel Sanctum']
+    tecnologias: ['PHP', 'Laravel']
   },
   {
     clave: 'realtime',
-    tecnologias: ['Laravel Reverb', 'Laravel Echo', 'Pusher JS']
+    tecnologias: ['Laravel Reverb', 'Laravel Echo']
   },
   {
-    clave: 'storage',
-    tecnologias: ['Flysystem', 'AWS S3']
+    clave: 'mapsStorage',
+    tecnologias: ['Leaflet', 'QRCode', 'AWS S3']
   },
   {
     clave: 'security',
-    tecnologias: ['Google2FA', 'Spatie Activitylog', 'Spatie Laravel Backup']
+    tecnologias: ['Google2FA', 'Spatie Activitylog']
   },
   {
     clave: 'databases',
-    tecnologias: ['SQLite', 'MySQL', 'MariaDB', 'PostgreSQL']
+    tecnologias: ['SQLite', 'MySQL/MariaDB', 'PostgreSQL']
   },
   {
     clave: 'quality',
-    tecnologias: ['PHPUnit', 'Vitest', 'Cypress', 'ESLint', 'TypeScript ESLint', 'Vue TSC']
+    tecnologias: ['PHPUnit', 'Vitest', 'Cypress']
   }
 ]
 
@@ -61,7 +53,7 @@ export const proyectos = [
     id: 'p1',
     titulo: 'Cancha Platform — Plataforma de Reserva de Canchas',
     descripcion:
-      'Plataforma digital web y móvil que conecta a personas que buscan espacios deportivos con complejos que ofrecen canchas. Permite descubrir instalaciones, consultar horarios disponibles y solicitar reservas; los complejos administran sus canchas, disponibilidad y solicitudes desde la misma plataforma. Integra una aplicación multiplataforma con una API en Laravel, actualizaciones en tiempo real, mapas, códigos QR y almacenamiento de archivos en AWS S3. Incluye autenticación, registro de actividad, copias de seguridad y pruebas automatizadas.',
+      'Plataforma web y móvil para descubrir complejos deportivos, consultar horarios y solicitar reservas. Los complejos gestionan canchas, disponibilidad y solicitudes desde el mismo sistema, con mapas y actualizaciones en tiempo real.',
     stackTecnico: stackCancha,
     tecnologias: stackCancha.flatMap((grupo) => grupo.tecnologias),
     tipo: 'personal',

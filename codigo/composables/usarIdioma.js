@@ -46,11 +46,9 @@ const traducciones = {
       stack: 'Stack técnico',
       stackGroups: {
         frontend: 'Frontend web y móvil',
-        interface: 'Interfaz y utilidades',
-        features: 'Mapas y funcionalidades',
         backend: 'Backend y API',
         realtime: 'Tiempo real',
-        storage: 'Archivos y servicios',
+        mapsStorage: 'Mapas y almacenamiento',
         security: 'Seguridad y administración',
         databases: 'Bases de datos compatibles',
         quality: 'Pruebas y calidad'
@@ -100,7 +98,7 @@ const traducciones = {
       personal: 'Personal',
       p1: {
         title: 'Cancha Platform — Sports Court Booking Platform',
-        description: 'A web and mobile platform connecting people looking for sports venues with complexes offering courts. Users can discover facilities, check available time slots, and request bookings, while venue teams manage courts, availability, and requests in the same platform. It combines a cross-platform app with a Laravel API, real-time updates, maps, QR codes, and AWS S3 file storage. It also includes authentication, activity logging, backups, and automated tests.'
+        description: 'A web and mobile platform for finding sports venues, checking schedules, and requesting court bookings. Venue teams manage courts, availability, and requests in one place, with maps and real-time updates.'
       },
       p2: {
         title: 'E-commerce Application for a Clothing Store',
@@ -150,11 +148,9 @@ const traducciones = {
       stack: 'Technology stack',
       stackGroups: {
         frontend: 'Web and mobile frontend',
-        interface: 'UI and utilities',
-        features: 'Maps and features',
         backend: 'Backend and API',
         realtime: 'Real time',
-        storage: 'Files and services',
+        mapsStorage: 'Maps and storage',
         security: 'Security and administration',
         databases: 'Supported databases',
         quality: 'Testing and quality'
@@ -204,7 +200,7 @@ const traducciones = {
       personal: 'Personnel',
       p1: {
         title: 'Cancha Platform — Plateforme de réservation de terrains',
-        description: 'Plateforme web et mobile qui met en relation les personnes à la recherche d’espaces sportifs et les complexes proposant des terrains. Les utilisateurs peuvent découvrir les installations, consulter les créneaux disponibles et demander une réservation; les complexes gèrent leurs terrains, disponibilités et demandes depuis la même plateforme. Elle associe une application multiplateforme à une API Laravel, des mises à jour en temps réel, des cartes, des codes QR et le stockage de fichiers sur AWS S3. Elle comprend également l’authentification, la journalisation des activités, les sauvegardes et des tests automatisés.'
+        description: 'Plateforme web et mobile pour découvrir des complexes sportifs, consulter les horaires et demander une réservation. Les complexes gèrent leurs terrains, disponibilités et demandes au même endroit, avec des cartes et des mises à jour en temps réel.'
       },
       p2: {
         title: 'Application e-commerce pour un magasin de vêtements',
@@ -254,11 +250,9 @@ const traducciones = {
       stack: 'Stack technique',
       stackGroups: {
         frontend: 'Frontend web et mobile',
-        interface: 'Interface et utilitaires',
-        features: 'Cartes et fonctionnalités',
         backend: 'Backend et API',
         realtime: 'Temps réel',
-        storage: 'Fichiers et services',
+        mapsStorage: 'Cartes et stockage',
         security: 'Sécurité et administration',
         databases: 'Bases de données compatibles',
         quality: 'Tests et qualité'
