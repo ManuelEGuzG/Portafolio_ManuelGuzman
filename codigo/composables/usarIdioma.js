@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 const traducciones = {
   es: {
     section: 'Sec.',
-    nav: { home: 'Inicio', projects: 'Proyectos', profile: 'Perfil TI', generalProfile: 'Perfil general', contact: 'Contacto', open: 'Abrir menú', close: 'Cerrar menú' },
+    nav: { home: 'Inicio', projects: 'Proyectos', profile: 'Perfil', generalProfile: 'Perfil general', contact: 'Contacto', open: 'Abrir menú', close: 'Cerrar menú' },
     back: 'Volver al portafolio',
     hero: {
       label: 'Plano / Perfil Técnico',
@@ -105,7 +105,7 @@ const traducciones = {
   },
   en: {
     section: 'Sec.',
-    nav: { home: 'Home', projects: 'Projects', profile: 'IT profile', generalProfile: 'General profile', contact: 'Contact', open: 'Open menu', close: 'Close menu' },
+    nav: { home: 'Home', projects: 'Projects', profile: 'Profile', generalProfile: 'General profile', contact: 'Contact', open: 'Open menu', close: 'Close menu' },
     back: 'Back to portfolio',
     hero: {
       label: 'Blueprint / Technical Profile',
@@ -235,7 +235,7 @@ const traducciones = {
   },
   fr: {
     section: 'Section',
-    nav: { home: 'Accueil', projects: 'Projets', profile: 'Profil TI', generalProfile: 'Profil général', contact: 'Contact', open: 'Ouvrir le menu', close: 'Fermer le menu' },
+    nav: { home: 'Accueil', projects: 'Projets', profile: 'Profil', generalProfile: 'Profil général', contact: 'Contact', open: 'Ouvrir le menu', close: 'Fermer le menu' },
     back: 'Retour au portfolio',
     hero: {
       label: 'Plan / Profil technique',

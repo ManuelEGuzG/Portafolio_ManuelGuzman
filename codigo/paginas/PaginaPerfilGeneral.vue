@@ -52,16 +52,17 @@ const conocimientos = computed(() => [0, 1, 2, 3].map((indice) => ({
 
 <style scoped>
 .perfil-general {
-  --perfil-fondo: #f5f0e7;
-  --perfil-panel: #fffdf8;
-  --perfil-borde: #ded4c5;
-  --perfil-texto: #292332;
-  --perfil-secundario: #706a78;
-  --perfil-acento: #a44936;
+  --perfil-fondo: #090d18;
+  --perfil-panel: #111827;
+  --perfil-borde: #29334b;
+  --perfil-texto: #f3f4f8;
+  --perfil-secundario: #a1abc0;
+  --perfil-acento: #b6a0ff;
   min-height: 100vh;
   color: var(--perfil-texto);
   background:
-    radial-gradient(ellipse at 85% 12%, rgba(164, 73, 54, 0.09), transparent 34rem),
+    radial-gradient(ellipse at 85% 12%, rgba(126, 99, 214, 0.14), transparent 34rem),
+    radial-gradient(ellipse at 10% 70%, rgba(57, 141, 176, 0.08), transparent 38rem),
     var(--perfil-fondo);
 }
 
@@ -73,13 +74,21 @@ const conocimientos = computed(() => [0, 1, 2, 3].map((indice) => ({
 
 .perfil-general :deep(.tag) {
   color: var(--perfil-secundario);
-  background: #f3ece1;
+  background: #0c1322;
   border-color: var(--perfil-borde);
 }
 
 .perfil-general :deep(.blueprint-tag),
 .perfil-general :deep(.text-signal) {
   color: var(--perfil-acento);
+}
+
+.perfil-general :deep(.bg-signal) {
+  background-color: var(--perfil-acento);
+}
+
+.perfil-general :deep(.border-signal) {
+  border-color: var(--perfil-acento);
 }
 
 .perfil-general :deep(.text-paper) {
@@ -96,12 +105,13 @@ const conocimientos = computed(() => [0, 1, 2, 3].map((indice) => ({
 
 .perfil-general :deep(.bg-ink\/70),
 .perfil-general :deep([role='group']) {
-  background-color: rgba(255, 253, 248, 0.88);
+  background-color: rgba(9, 13, 24, 0.82);
 }
 
 .perfil-general :deep(header a.font-mono) {
   color: var(--perfil-acento);
   border-color: var(--perfil-borde);
+  background-color: rgba(9, 13, 24, 0.82);
 }
 
 .perfil-general :deep(.btn-back),
@@ -110,7 +120,11 @@ const conocimientos = computed(() => [0, 1, 2, 3].map((indice) => ({
 }
 
 .perfil-general :deep([role='group'] button[aria-pressed='true']) {
-  color: #fffdf8;
+  color: #090d18;
   background-color: var(--perfil-acento);
+}
+
+.perfil-general :deep(.tag:hover) {
+  border-color: var(--perfil-acento);
 }
 </style>

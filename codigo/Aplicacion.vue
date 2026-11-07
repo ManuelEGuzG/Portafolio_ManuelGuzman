@@ -17,10 +17,21 @@
   -----------------------------------------------------------------------
 -->
 <script setup>
+import { computed } from 'vue'
 import { RouterView } from 'vue-router'
+import { useRoute } from 'vue-router'
 import BarraProgreso from '@/componentes/BarraProgreso.vue'
 import ClickSpark from '@/componentes/ClickSpark.vue'
 import Particles from '@/componentes/Particles.vue'
+
+const route = useRoute()
+const esPerfilGeneral = computed(() => route.path === '/perfil-general')
+const coloresParticulas = computed(() =>
+  esPerfilGeneral.value
+    ? ['#b6a0ff', '#7dd3fc', '#a5b4fc']
+    : ['#8be28b', '#d9f99d', '#6dbb8a']
+)
+const colorDestello = computed(() => esPerfilGeneral.value ? '#b6a0ff' : '#8be28b')
 </script>
 
 <template>
@@ -29,7 +40,7 @@ import Particles from '@/componentes/Particles.vue'
     :particle-count="260"
     :particle-spread="11"
     :speed="0.08"
-    :particle-colors="['#8be28b', '#d9f99d', '#6dbb8a']"
+    :particle-colors="coloresParticulas"
     move-particles-on-hover
     :particle-hover-factor="0.7"
     :particle-base-size="80"
@@ -45,7 +56,7 @@ import Particles from '@/componentes/Particles.vue'
        pointer-events-none para que nunca interfiera con los clics. -->
   <div class="textura-ruido" aria-hidden="true" />
 
-  <ClickSpark :spark-color="'#8be28b'" :spark-size="9" :spark-radius="18" :spark-count="8" :duration="420" class="app-content">
+  <ClickSpark :spark-color="colorDestello" :spark-size="9" :spark-radius="18" :spark-count="8" :duration="420" class="app-content">
     <RouterView v-slot="{ Component, route }">
       <Transition name="pagina" mode="out-in">
         <!-- 'key' fuerza a Vue a tratar cada proyecto como una vista nueva,

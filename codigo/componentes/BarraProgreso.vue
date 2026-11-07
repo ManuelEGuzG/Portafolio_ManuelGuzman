@@ -12,16 +12,20 @@
   -----------------------------------------------------------------------
 -->
 <script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { usarProgresoRuta } from '@/composables/usarProgresoRuta.js'
 
 const { enProgreso } = usarProgresoRuta()
+const route = useRoute()
+const esPerfilGeneral = computed(() => route.path === '/perfil-general')
 </script>
 
 <template>
   <div class="fixed top-0 inset-x-0 z-[60] h-[2px] pointer-events-none">
     <div
-      class="h-full bg-signal transition-all ease-out"
-      :class="enProgreso ? 'w-full opacity-100 duration-500' : 'w-0 opacity-0 duration-200'"
+      class="h-full transition-all ease-out"
+      :class="[esPerfilGeneral ? 'bg-violet-300' : 'bg-signal', enProgreso ? 'w-full opacity-100 duration-500' : 'w-0 opacity-0 duration-200']"
     />
   </div>
 </template>
