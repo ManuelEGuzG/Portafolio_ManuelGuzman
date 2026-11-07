@@ -100,10 +100,13 @@ function alMoverMouse(evento) {
         {{ proyectoTraducido.descripcion }}
       </p>
 
-      <!-- Todas las tecnologías del proyecto, sin recortar -->
+      <!-- La tarjeta destaca el stack principal; el detalle muestra el listado completo. -->
       <div class="flex flex-wrap gap-2 mt-4">
-        <span v-for="tecnologia in proyectoTraducido.tecnologias" :key="tecnologia" class="tag">
+        <span v-for="tecnologia in proyectoTraducido.tecnologias.slice(0, 6)" :key="tecnologia" class="tag">
           {{ tecnologiaLocalizada(tecnologia) }}
+        </span>
+        <span v-if="proyectoTraducido.tecnologias.length > 6" class="tag text-signal">
+          +{{ proyectoTraducido.tecnologias.length - 6 }}
         </span>
       </div>
 

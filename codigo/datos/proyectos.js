@@ -9,20 +9,61 @@
  * @property {string} titulo - Nombre del proyecto en español.
  * @property {string} descripcion - Descripción del proyecto en español.
  * @property {string[]} tecnologias - Tecnologías usadas en el proyecto.
+ * @property {{ clave: string, tecnologias: string[] }[]} [stackTecnico] - Stack agrupado para el detalle.
  * @property {'academico'|'cliente'|'personal'} tipo - Categoría del proyecto.
  * @property {string} urlDemo - Enlace público a la demo o cadena vacía si no existe.
  * @property {string[]} imagenes - Imágenes del proyecto; la primera es la portada.
  * @property {{ titulo: string, url: string }[]} documentos - Documentos de referencia.
  * -----------------------------------------------------------------------
  */
+const stackCancha = [
+  {
+    clave: 'frontend',
+    tecnologias: ['Vue 3', 'TypeScript', 'Ionic', 'Capacitor', 'Vite', 'Vue Router', 'Pinia']
+  },
+  {
+    clave: 'interface',
+    tecnologias: ['Ionicons', 'Tabler Icons', 'Motion', 'Tailwind CSS', 'Tailwind Merge']
+  },
+  {
+    clave: 'features',
+    tecnologias: ['Leaflet', 'QRCode', 'Axios']
+  },
+  {
+    clave: 'backend',
+    tecnologias: ['PHP 8.3', 'Laravel 13', 'Laravel Sanctum']
+  },
+  {
+    clave: 'realtime',
+    tecnologias: ['Laravel Reverb', 'Laravel Echo', 'Pusher JS']
+  },
+  {
+    clave: 'storage',
+    tecnologias: ['Flysystem', 'AWS S3']
+  },
+  {
+    clave: 'security',
+    tecnologias: ['Google2FA', 'Spatie Activitylog', 'Spatie Laravel Backup']
+  },
+  {
+    clave: 'databases',
+    tecnologias: ['SQLite', 'MySQL', 'MariaDB', 'PostgreSQL']
+  },
+  {
+    clave: 'quality',
+    tecnologias: ['PHPUnit', 'Vitest', 'Cypress', 'ESLint', 'TypeScript ESLint', 'Vue TSC']
+  }
+]
+
 /** @type {Proyecto[]} */
 export const proyectos = [
   {
     id: 'p1',
-    titulo: 'Sportra — Plataforma de Reserva de Canchas',
+    titulo: 'Cancha Platform — Plataforma de Reserva de Canchas',
     descripcion:
-      'Plataforma web para descubrir complejos deportivos y solicitar reservas de canchas. Permite buscar por ubicación, consultar disponibilidad y administrar horarios, reservas y bloqueos desde un panel para propietarios. Incluye herramientas administrativas para gestionar complejos, usuarios, verificaciones y reportes, además de actualización en tiempo real de la disponibilidad.',
-    tecnologias: ['Vue 3', 'TypeScript', 'Ionic', 'Laravel', 'PHP', 'SQLite/MySQL', 'Laravel Reverb'],
+      'Plataforma digital web y móvil que conecta a personas que buscan espacios deportivos con complejos que ofrecen canchas. Permite descubrir instalaciones, consultar horarios disponibles y solicitar reservas; los complejos administran sus canchas, disponibilidad y solicitudes desde la misma plataforma. Integra una aplicación multiplataforma con una API en Laravel, actualizaciones en tiempo real, mapas, códigos QR y almacenamiento de archivos en AWS S3. Incluye autenticación, registro de actividad, copias de seguridad y pruebas automatizadas.',
+    stackTecnico: stackCancha,
+    tecnologias: stackCancha.flatMap((grupo) => grupo.tecnologias),
     tipo: 'personal',
     urlDemo: '',
     imagenes: [

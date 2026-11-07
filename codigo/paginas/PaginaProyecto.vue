@@ -51,7 +51,7 @@ const cerrarModal = () => {
           <h1 class="font-display font-semibold text-3xl sm:text-5xl mt-4 leading-tight text-paper break-words">
             {{ proyectoTraducido.titulo }}
           </h1>
-          <div class="flex flex-wrap gap-2 mt-6">
+          <div v-if="!proyectoTraducido.stackTecnico?.length" class="flex flex-wrap gap-2 mt-6">
             <span v-for="tecnologia in proyectoTraducido.tecnologias" :key="tecnologia" class="tag">
               {{ tecnologiaLocalizada(tecnologia) }}
             </span>
@@ -66,6 +66,21 @@ const cerrarModal = () => {
             {{ proyectoTraducido.descripcion }}
           </p>
 
+          <div v-if="proyectoTraducido.stackTecnico?.length" class="mt-8">
+            <p class="blueprint-tag">{{ t('detail.stack') }}</p>
+            <div class="grid sm:grid-cols-2 gap-3 mt-4">
+              <div v-for="grupo in proyectoTraducido.stackTecnico" :key="grupo.clave" class="panel p-4">
+                <p class="font-mono text-xs text-signal mb-3">
+                  {{ t(`detail.stackGroups.${grupo.clave}`) }}
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span v-for="tecnologia in grupo.tecnologias" :key="tecnologia" class="tag">
+                    {{ tecnologia }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <aside v-revelar="{ delay: 160 }" class="space-y-6">
