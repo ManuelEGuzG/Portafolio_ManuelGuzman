@@ -62,8 +62,7 @@ const conocimientos = computed(() => [0, 1, 2, 3].map((indice) => ({
   color: var(--perfil-texto);
   background:
     radial-gradient(ellipse at 85% 12%, rgba(126, 99, 214, 0.14), transparent 34rem),
-    radial-gradient(ellipse at 10% 70%, rgba(57, 141, 176, 0.08), transparent 38rem),
-    var(--perfil-fondo);
+    radial-gradient(ellipse at 10% 70%, rgba(57, 141, 176, 0.08), transparent 38rem);
 }
 
 .perfil-general :deep(.panel) {

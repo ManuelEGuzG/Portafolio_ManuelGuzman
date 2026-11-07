@@ -36,6 +36,7 @@ const colorDestello = computed(() => esPerfilGeneral.value ? '#b6a0ff' : '#8be28
 
 <template>
   <Particles
+    :key="esPerfilGeneral ? 'perfil-general' : 'portafolio'"
     class="particles-background"
     :particle-count="260"
     :particle-spread="11"
