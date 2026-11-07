@@ -98,7 +98,20 @@ export const proyectos = [
     tipo: 'academico',
     urlDemo: '',
     imagenes: [
-      '/Imagenes/Bovweight.png'
+      '/Imagenes/Bovweight.png',
+      '/Imagenes/p5/1.png',
+      '/Imagenes/p5/2.png',
+      '/Imagenes/p5/3.png',
+      '/Imagenes/p5/4.png',
+      '/Imagenes/p5/5.png',
+      '/Imagenes/p5/6.png',
+      '/Imagenes/p5/7.png',
+      '/Imagenes/p5/8.png',
+      '/Imagenes/p5/9.png',
+      '/Imagenes/p5/10.png',
+      '/Imagenes/p5/11.png',
+      '/Imagenes/p5/12.png',
+      '/Imagenes/p5/13.png'
     ],
     documentos: [],
     estadisticas: { agregadas: 1620, eliminadas: 280 }
