@@ -3,10 +3,16 @@ import { computed } from 'vue'
 import BarraSimple from '@/componentes/BarraSimple.vue'
 import { t } from '@/composables/usarIdioma.js'
 
-const conocimientos = computed(() => [0, 1, 2, 3].map((indice) => ({
-  titulo: t(`generalProfile.knowledge.${indice}.title`),
-  descripcion: t(`generalProfile.knowledge.${indice}.description`)
-})))
+const conocimientos = computed(() => {
+  const cantidadDetalles = [5, 3, 4, 3]
+  return cantidadDetalles.map((cantidad, indice) => ({
+    titulo: t(`generalProfile.knowledge.${indice}.title`),
+    descripcion: t(`generalProfile.knowledge.${indice}.description`),
+    detalles: Array.from({ length: cantidad }, (_, detalle) =>
+      t(`generalProfile.knowledge.${indice}.details.${detalle}`)
+    )
+  }))
+})
 </script>
 
 <template>
@@ -35,6 +41,11 @@ const conocimientos = computed(() => [0, 1, 2, 3].map((indice) => ({
           >
             <h2 class="font-mono text-sm text-signal">{{ item.titulo }}</h2>
             <p class="text-muted text-sm leading-relaxed mt-3">{{ item.descripcion }}</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span v-for="detalle in item.detalles" :key="detalle" class="tag text-xs">
+                {{ detalle }}
+              </span>
+            </div>
           </article>
         </div>
       </section>

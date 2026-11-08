@@ -63,17 +63,33 @@ const traducciones = {
     generalProfile: {
       label: 'Más allá de TI',
       title: 'Perfil general',
-      intro: 'Además de mi formación en tecnología, he desarrollado conocimientos e intereses prácticos en distintas áreas. Este espacio reúne esas habilidades y licencias.',
-      knowledgeTitle: 'Conocimientos e intereses',
+      intro: 'Mi experiencia fuera del ámbito tecnológico combina la práctica musical, los trabajos de construcción y el dibujo, junto con conocimientos básicos de instalaciones eléctricas residenciales. Son habilidades que he desarrollado en actividades académicas, de la iglesia y en tareas prácticas.',
+      knowledgeTitle: 'Habilidades y experiencia práctica',
       knowledge: [
-        { title: 'Música', description: 'Conocimientos y práctica musical.' },
-        { title: 'Instalaciones eléctricas', description: 'Conocimientos generales de instalación eléctrica.' },
-        { title: 'Construcción', description: 'Conocimientos de obra gris y procesos básicos de construcción.' },
-        { title: 'Dibujo y diseño', description: 'Conocimientos de dibujo y diseño.' }
+        {
+          title: 'Música',
+          description: 'Toco varios instrumentos y he desarrollado esta práctica participando en actividades de la iglesia y académicas.',
+          details: ['Piano', 'Bajo', 'Guitarra', 'Batería', 'Ukelele']
+        },
+        {
+          title: 'Instalaciones eléctricas residenciales',
+          description: 'Conocimientos básicos de circuitos eléctricos para una vivienda y de conexiones domésticas.',
+          details: ['Tomacorrientes', 'Bombillos', 'Uniones eléctricas']
+        },
+        {
+          title: 'Construcción y obra gris',
+          description: 'Experiencia práctica en distintas tareas de construcción y acabado de espacios.',
+          details: ['Colocación de cerámica', 'Pisos', 'Repello', 'Pintura de paredes']
+        },
+        {
+          title: 'Dibujo artístico',
+          description: 'Realizo dibujos a lápiz en blanco y negro, principalmente de paisajes.',
+          details: ['Lápiz', 'Blanco y negro', 'Paisajes']
+        }
       ],
       licensesTitle: 'Licencias de conducir',
-      carLicense: 'Automóvil',
-      motorcycleLicense: 'Motocicleta'
+      carLicense: 'Automóvil · B1',
+      motorcycleLicense: 'Motocicleta · A2'
     },
     contact: {
       title: 'Construyamos<br> algo juntos.',
@@ -193,17 +209,33 @@ const traducciones = {
     generalProfile: {
       label: 'Beyond IT',
       title: 'General profile',
-      intro: 'Alongside my technology education, I have developed practical knowledge and interests in several other areas. This page brings together those skills and licenses.',
-      knowledgeTitle: 'Knowledge and interests',
+      intro: 'My experience beyond technology combines music, construction work and drawing, along with basic knowledge of residential electrical installations. I have developed these skills through academic and church activities, as well as hands-on tasks.',
+      knowledgeTitle: 'Practical skills and experience',
       knowledge: [
-        { title: 'Music', description: 'Knowledge and practice of music.' },
-        { title: 'Electrical installations', description: 'General knowledge of electrical installation.' },
-        { title: 'Construction', description: 'Knowledge of masonry and basic construction processes.' },
-        { title: 'Drawing and design', description: 'Knowledge of drawing and design.' }
+        {
+          title: 'Music',
+          description: 'I play several instruments and have developed this practice through church and academic activities.',
+          details: ['Piano', 'Bass', 'Guitar', 'Drums', 'Ukulele']
+        },
+        {
+          title: 'Residential electrical installations',
+          description: 'Basic knowledge of household electrical circuits and residential connections.',
+          details: ['Outlets', 'Light bulbs', 'Wire connections']
+        },
+        {
+          title: 'Construction and masonry',
+          description: 'Hands-on experience with different construction and space-finishing tasks.',
+          details: ['Tile installation', 'Flooring', 'Plastering', 'Wall painting']
+        },
+        {
+          title: 'Artistic drawing',
+          description: 'I draw landscapes in pencil and black and white.',
+          details: ['Pencil', 'Black and white', 'Landscapes']
+        }
       ],
       licensesTitle: 'Driving licenses',
-      carLicense: 'Car',
-      motorcycleLicense: 'Motorcycle'
+      carLicense: 'Car · B1',
+      motorcycleLicense: 'Motorcycle · A2'
     },
     contact: {
       title: 'Let’s build<br> something together.',
@@ -323,17 +355,33 @@ const traducciones = {
     generalProfile: {
       label: 'Au-delà de l’informatique',
       title: 'Profil général',
-      intro: 'En complément de ma formation en technologie, j’ai développé des connaissances pratiques et des intérêts dans plusieurs autres domaines. Cette page rassemble ces compétences et mes permis.',
-      knowledgeTitle: 'Connaissances et intérêts',
+      intro: 'Mon expérience en dehors du domaine technologique associe la pratique musicale, les travaux de construction et le dessin, ainsi que des connaissances de base en installations électriques résidentielles. J’ai développé ces compétences lors d’activités académiques et à l’église, ainsi qu’à travers des tâches pratiques.',
+      knowledgeTitle: 'Compétences et expérience pratique',
       knowledge: [
-        { title: 'Musique', description: 'Connaissances et pratique musicale.' },
-        { title: 'Installations électriques', description: 'Connaissances générales en installation électrique.' },
-        { title: 'Construction', description: 'Connaissances en gros œuvre et en travaux de construction de base.' },
-        { title: 'Dessin et conception', description: 'Connaissances en dessin et en conception.' }
+        {
+          title: 'Musique',
+          description: 'Je joue de plusieurs instruments et ai développé cette pratique lors d’activités à l’église et académiques.',
+          details: ['Piano', 'Basse', 'Guitare', 'Batterie', 'Ukulélé']
+        },
+        {
+          title: 'Installations électriques résidentielles',
+          description: 'Connaissances de base des circuits électriques domestiques et des raccordements pour une maison.',
+          details: ['Prises', 'Ampoules', 'Raccordements électriques']
+        },
+        {
+          title: 'Construction et gros œuvre',
+          description: 'Expérience pratique dans différentes tâches de construction et de finition des espaces.',
+          details: ['Pose de carrelage', 'Sols', 'Enduit', 'Peinture des murs']
+        },
+        {
+          title: 'Dessin artistique',
+          description: 'Je réalise principalement des paysages au crayon, en noir et blanc.',
+          details: ['Crayon', 'Noir et blanc', 'Paysages']
+        }
       ],
       licensesTitle: 'Permis de conduire',
-      carLicense: 'Automobile',
-      motorcycleLicense: 'Moto'
+      carLicense: 'Automobile · B1',
+      motorcycleLicense: 'Moto · A2'
     },
     contact: {
       title: 'Construisons<br> quelque chose ensemble.',
